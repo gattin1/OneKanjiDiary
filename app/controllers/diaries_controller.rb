@@ -4,6 +4,7 @@ class DiariesController < ApplicationController
   end
 
   def show
+    @diary = current_user.diaries.find(params[:id])
   end
 
   def new
