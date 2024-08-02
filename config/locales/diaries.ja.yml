@@ -1,0 +1,25 @@
+ja:
+  helpers:
+    submit:
+      diary:
+        create: 日記を作成する
+        update: 日記を更新する
+  diaries:
+    new:
+      title: 新しい日記を記しましょう
+    edit:
+      title:  日記を編集しましょう
+    show:  
+      title: 日記詳細
+      edit: 編集する
+      delete: 削除する
+    form:
+      title: 今日の一文字
+      memo: メモ
+      date: 日付
+    create:
+      success: 日記が作成されました。
+    update:
+      success: 日記が更新されました。
+    destroy:
+      success: 日記が削除されました。

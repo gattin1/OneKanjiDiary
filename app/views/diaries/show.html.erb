@@ -1,12 +1,12 @@
-<h1>日記詳細</h1>
+<h1><%= t('.title') %></h1>
 
 <p>
   <strong>今日の一文字:</strong>
-  <%= @diary.content %>
+  <%= @diary.title %>
 </p>
 
 <p>
-  <strong>一言メモ:</strong>
+  <strong>メモ:</strong>
   <%= @diary.memo %>
 </p>
 
@@ -15,5 +15,5 @@
   <%= @diary.date %>
 </p>
 
-<%= link_to '編集', edit_user_diary_path(current_user, @diary) %> |
-<%= link_to '削除', user_diary_path(current_user, @diary), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<%= link_to t('.edit'), edit_user_diary_path(current_user, @diary) %> |
+<%= link_to t('.delete'), user_diary_path(current_user, @diary), method: :delete, data: { confirm: '本当に削除しますか？' } %>
