@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_30_095945) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_01_181847) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "diaries", force: :cascade do |t|
     t.integer "user_id"
-    t.string "content"
+    t.string "title"
     t.string "memo"
     t.date "date"
     t.datetime "created_at", null: false

@@ -11,21 +11,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :title,  t('.title') %>
+    <%= form.text_area :title %>
   </div>
 
   <div class="field">
-    <%= form.label :memo %>
+    <%= form.label :memo, t('.memo') %>
     <%= form.text_area :memo %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
+    <%= form.label :date, t('.date') %>
     <%= form.date_field :date %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Create Diary" %>
+    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update') %>
   </div>
 <% end %>
