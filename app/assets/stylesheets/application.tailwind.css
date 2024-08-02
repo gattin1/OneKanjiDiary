@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* カレンダー全体のスタイル */
+.calendar {
+    @apply grid grid-cols-7 gap-2;
+  }
+  
+  /* 各日付のスタイル */
+  .day {
+    @apply bg-gray-100 rounded-lg shadow p-4 relative;
+  }
+  
+  /* 日付表示のスタイル */
+  .date {
+    @apply text-gray-500 text-sm absolute top-1 left-1;
+  }
+  
