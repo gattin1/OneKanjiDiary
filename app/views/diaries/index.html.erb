@@ -13,3 +13,19 @@
 <% else %>
   <p>まだ日記がありません。</p>
 <% end %>
+
+<div class="calendar">
+  <%= month_calendar do |date| %>
+    <div class="day relative">
+      <!-- 日付を表示 -->
+      <div class="date text-gray-500 text-sm absolute top-1 left-1">
+        <%= date.day %>
+      </div>
+
+      <% diaries_for_day = Diary.where(user_id: current_user.id, date: date) %>
+      <% diaries_for_day.each do |diary| %>
+        <%= link_to diary.title, user_diary_path(current_user, diary), class: "block text-center text-white bg-blue-500 hover:bg-blue-700 rounded px-2 py-1 mb-1" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
