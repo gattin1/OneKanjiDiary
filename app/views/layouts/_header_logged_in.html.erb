@@ -1,0 +1,10 @@
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a><%= link_to '一文字日記', root_path %></a>
+  </div>
+  <div class="flex-none">
+    <button class="btn btn-secondary mr-2"><%= link_to '日記新規作成',new_user_diary_path(current_user) %></button>
+    <button class="btn btn-accent mr-2"><%= link_to 'カレンダー', user_diaries_path(current_user) %></button>
+    <button class="btn btn-primary"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></button>
+  </div>
+</div>
