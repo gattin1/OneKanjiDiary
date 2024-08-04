@@ -1,6 +1,11 @@
 <h1><%= t('.title') %></h1>
 
 <p>
+  <strong>感情:</strong>
+  <%= @diary.mood.name %>
+</p>
+
+<p>
   <strong>今日の一文字:</strong>
   <%= @diary.title %>
 </p>

@@ -9,11 +9,12 @@ ja:
       title: 新しい日記を記しましょう
     edit:
       title:  日記を編集しましょう
-    show:  
+    show:
       title: 日記詳細
       edit: 編集する
       delete: 削除する
     form:
+      mood: 気分は？
       title: 今日の一文字
       memo: メモ
       date: 日付
