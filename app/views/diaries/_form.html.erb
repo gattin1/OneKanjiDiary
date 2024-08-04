@@ -9,6 +9,13 @@
       </ul>
     </div>
   <% end %>
+  <div class="moods">
+    <%= form.label :mood_id, t('.mood') %><br>
+        <% Mood.all.each do |mood| %>
+          <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}" %>
+          <%= form.label "mood_#{mood.id}", mood.name, style: "margin-right: 20px;" %>
+        <% end %>
+  </div>
 
   <div class="field">
     <%= form.label :title,  t('.title') %>

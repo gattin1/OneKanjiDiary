@@ -47,6 +47,6 @@ class DiariesController < ApplicationController
   end
 
   def diary_params
-    params.require(:diary).permit(:title, :memo, :date)
+    params.require(:diary).permit(:title, :memo, :date, :mood_id)
   end
 end
