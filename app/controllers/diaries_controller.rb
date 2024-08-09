@@ -13,7 +13,7 @@ class DiariesController < ApplicationController
   def show; end
 
   def new
-    @diary = current_user.diaries.build
+    @diary = current_user.diaries.build(date: Date.today)
   end
 
   def create
