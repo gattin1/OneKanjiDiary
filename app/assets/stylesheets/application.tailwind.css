@@ -3,27 +3,73 @@
 @tailwind utilities;
 
 /* カレンダー全体のスタイル */
-.calendar {
-    @apply grid grid-cols-7 gap-1;
+.calendar  {
+     @apply w-full;
   }
   
-  /* 各日付のスタイル */
-  .day {
-    @apply bg-gray-100 shadow p-6 relative h-11 w-11 ;
+  .calendar td {
+    @apply p-2 align-top;
+}
+/* カレンダーの各日付のセル */
+.day {
+  @apply bg-white shadow p-6 relative h-16 w-16;
+  position: relative;
+}
+
+/* 日付表示のスタイル */
+.date {
+  @apply text-gray-500 text-base absolute;
+  top: 2px; /* 日付の位置を微調整 */
+  left: 4px;
+}
+
+/* 日記タイトルのリンク */
+.day a {
+  display: block;
+  position: absolute;
+  bottom: 4px; /* リンクを日付の下に配置 */
+  left: 44%;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 2rem;
+  width: 30px;
+  height: 36px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+  .prev-month {
+    @apply bg-gray-200 font-light
   }
-  
-  /* 日付表示のスタイル */
-  .date {
-    @apply text-gray-600 text-base text-center absolute top-1 left-1;
-  }
-  
-  .today{
-    @apply bg-blue-100
+  .next-month {
+    @apply bg-gray-200 font-light
   }
 
-  .prev-month a {
-    display: none;
+  .font-zen {
+    font-family: 'Zen Old Mincho', serif !important;
   }
-  .next-month a {
-    display: none;
-  }
+
+  .mood-label {
+  cursor: pointer;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.mood-image {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+input[type="radio"]:checked + .mood-label .mood-image {
+  border-color: #5b8abd; 
+}
+
+header nav {
+  @apply flex justify-between items-center;
+}
+
+header nav a {
+  @apply px-4 py-2 bg-red-500 text-white;
+  width: auto; /* 自動調整 */
+}
