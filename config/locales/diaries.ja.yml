@@ -10,12 +10,14 @@ ja:
     edit:
       title:  日記を編集しましょう
     show:
-      title: 日記詳細
+      character: 一文字
+      memo: メモ
+      title: 詳細
       edit: 編集する
       delete: 削除する
     form:
       mood: 気分は？(顔文字をタッチ)
-      title: 今日の一文字
+      title: 一文字
       memo: メモ
       date: 日付
     create:

@@ -1,20 +1,20 @@
-<h1><%= t('.title') %></h1>
+<h1 class="font-medium text-xl mb-4"><%= t('.title') %>
+<%= link_to t('.edit'), edit_user_diary_path(current_user, @diary), class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm ml-20 mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+<%= link_to t('.delete'), user_diary_path(current_user, @diary),
+class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline",
+method: :delete, data: { confirm: '本当に削除しますか？' } %>
+</h1>
 
-
-<p>
-  <strong>今日の一文字:</strong>
-  <%= @diary.title %>
-</p>
-
-<p>
-  <strong>メモ:</strong>
-  <%= @diary.memo %>
-</p>
-
-<p>
-  <strong>日付:</strong>
+<p class="m-5 font-sm font-sans">
   <%= @diary.date %>
 </p>
 
-<%= link_to t('.edit'), edit_user_diary_path(current_user, @diary) %> |
-<%= link_to t('.delete'), user_diary_path(current_user, @diary), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<div class="flex items-center justify-center w-28 h-28 bg-gray-100 rounded-full text-center my-6">
+  <p class="<%= color_class(@diary.mood&.color) %> leading-tight  text-5xl m-0">
+    <%= @diary.title %>
+  </p>
+</div>
+
+<p class="<%= color_class(@diary.mood&.color) %> leading-tight  text-2xl m-4">
+  <%= @diary.memo %>
+</p>
