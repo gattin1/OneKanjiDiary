@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="moods mb-4">
-  <%= form.label :mood_id, t('.mood'), class: "block text-gray-700 font-bold mb-1 relative" %><br>
+  <%= form.label :mood_id, t('.mood'), class: "font-zen block text-gray-700 font-normal mb-1 relative" %><br>
   <div class="flex flex-wrap space-x-4" style="position: relative; top: -10px;">
     <% Mood.all.each do |mood| %>
       <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}", class: "hidden" %>
@@ -27,13 +27,13 @@
 
 
   <div class="field mb-4">
-    <%= form.label :title, t('.title'), class: "block text-gray-700 font-bold mb-2" %>
-    <%= form.text_area :title, class: "shadow appearance-none border rounded-full w-28 h-28 text-center text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none text-5xl p-0 pt-6", maxlength: 1 %>
+    <%= form.label :title, t('.title'), class: "font-yuji block text-gray-700 font-medium mb-2" %>
+    <%= form.text_area :title, class: "shadow appearance-none border rounded-full w-28 h-28 text-center text-gray-700 font-yuji leading-tight focus:outline-none focus:shadow-outline resize-none text-5xl p-0 pt-6", maxlength: 1 %>
   </div>
 
   <div class="field mb-4">
-    <%= form.label :memo, t('.memo'), class: "block text-gray-700 font-bold mb-2" %>
-    <%= form.text_area :memo, class: "shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <%= form.label :memo, t('.memo'), class: "font-zen block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :memo, class: "font-yuji shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
   <div class="field mb-4">
@@ -42,6 +42,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update'), class: "bg-stone-400 hover:bg-stone-500 text-white font-bold mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update'), class: "font-zen bg-stone-400 hover:bg-stone-500 text-white font-bold mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>

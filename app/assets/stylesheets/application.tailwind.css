@@ -12,7 +12,7 @@
 }
 /* カレンダーの各日付のセル */
 .day {
-  @apply bg-white shadow p-6 relative h-16 w-16;
+  @apply bg-white shadow p-6 relative h-6 w-6;
   position: relative;
 }
 
