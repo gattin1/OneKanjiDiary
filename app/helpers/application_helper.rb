@@ -3,15 +3,13 @@ module ApplicationHelper
     return 'text-black' if mood_color.nil?
     case mood_color
     when 'yellow'
-      'text-yellow-400'
+      'text-yellow-300'
     when 'red'
       'text-red-600'
     when 'blue'
       'text-blue-700'
     when 'orange'
       'text-orange-500'
-    when 'purple'
-      'text-purple-600'
     when 'gray'
       'text-gray-400'
     else

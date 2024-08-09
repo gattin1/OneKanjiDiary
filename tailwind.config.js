@@ -7,10 +7,14 @@ module.exports = {
   ],
   plugins: [require("daisyui")],
 
-  daisyui: {
-    themes: [
-      "retro",
-      "cupcake"
-    ]
+  theme: {
+    extend: {
+      fontFamily: {
+        yuji: ['Yuji Mai', 'serif'],
+        zen: ['Zen Old Mincho', 'serif'],
+      },
+    },
   }
 }
+
+

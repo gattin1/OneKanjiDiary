@@ -1,14 +1,13 @@
-<h1><%= current_user.name %>の日記一覧</h1>
+<h1><%= current_user.name %>の日記</h1>
 
 <% if @diaries.any? %>
+  <% latest_diary = @diaries.order(date: :desc).first %>
   <ul>
-    <% @diaries.each do |diary| %>
-      <li>
-        <strong><%= diary.date.strftime("%Y年%m月%d日") %></strong>
-        <p>タイトル: <%= diary.title %></p>
-        <p>メモ: <%= diary.memo %></p>
-      </li>
-    <% end %>
+    <li>
+      <strong><%= latest_diary.date.strftime("%Y年%m月%d日") %></strong>
+      <p class="font-zen text-lg"><%= latest_diary.title %></p>
+      <p>メモ: <%= latest_diary.memo %></p>
+    </li>
   </ul>
 <% else %>
   <p>まだ日記がありません。</p>
@@ -18,14 +17,14 @@
   <%= month_calendar do |date| %>
     <div class="day relative">
       <!-- 日付を表示 -->
-      <div class="date text-gray-500 text-sm absolute top-1 left-1">
+      <div class="date text-gray-500 text-sm absolute">
         <%= date.day %>
       </div>
-        <% diaries_for_day = Diary.where(user_id: current_user.id, date: date) %>
-        <% diaries_for_day.each do |diary| %>
-          <%= link_to diary.title, user_diary_path(current_user, diary),
-          class: " text-center bg-slate-100 hover:bg-slate-300 rounded #{color_class(diary.mood&.color)} text-3xl w-9 h-9" %>
-        <% end %>
-      </div>
+      <% diaries_for_day = Diary.where(user_id: current_user.id, date: date) %>
+      <% diaries_for_day.each do |diary| %>
+        <%= link_to diary.title, user_diary_path(current_user, diary),
+        class: "items-center justify-center text-center hover:bg-slate-300 #{color_class(diary.mood&.color)} text-4xl mt-6 font-zen text-lg" %>
+      <% end %>
+    </div>
   <% end %>
 </div>
