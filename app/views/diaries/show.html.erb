@@ -5,16 +5,16 @@ class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm mt-3 mb-5
 method: :delete, data: { confirm: '本当に削除しますか？' } %>
 </h1>
 
-<p class="m-5 font-sm font-sans">
+<p class="m-5 font-sm font-zen">
   <%= @diary.date %>
 </p>
 
 <div class="flex items-center justify-center w-28 h-28 bg-gray-100 rounded-full text-center my-6">
-  <p class="<%= color_class(@diary.mood&.color) %> leading-tight  text-5xl m-0">
+  <p class="<%= color_class(@diary.mood&.color) %> font-yuji leading-tight text-5xl m-0">
     <%= @diary.title %>
   </p>
 </div>
 
-<p class="<%= color_class(@diary.mood&.color) %> leading-tight  text-2xl m-4">
+<p class="<%= color_class(@diary.mood&.color) %> leading-tight font-yuji text-2xl m-4">
   <%= @diary.memo %>
 </p>
