@@ -14,7 +14,7 @@ ja:
       edit: 編集する
       delete: 削除する
     form:
-      mood: 気分は？
+      mood: 気分は？(顔文字をタッチ)
       title: 今日の一文字
       memo: メモ
       date: 日付
