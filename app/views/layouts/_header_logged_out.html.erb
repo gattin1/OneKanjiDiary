@@ -1,9 +1,9 @@
-<div class="navbar bg-base-100">
+<div class="navbar bg-stone-200">
   <div class="flex-1">
-    <a><%= link_to '一文字日記', root_path %></a>
+    <a><%= link_to '一文字日記', root_path, class: "font-black" %></a>
   </div>
   <div class="flex-none">
-    <%= link_to '会員登録', new_user_registration_path, class: "btn btn-secondary mr-2 block flex items-center justify-center" %>
-  <%= link_to 'ログイン', new_user_session_path, class: "btn btn-accent block flex items-center justify-center" %>
+    <%= link_to '会員登録', new_user_registration_path, class: "btn bg-red-700 text-white mr-2 block flex items-center justify-center" %>
+  <%= link_to 'ログイン', new_user_session_path, class: "btn bg-green-900 text-white block flex items-center justify-center" %>
   </div>
 </div>
