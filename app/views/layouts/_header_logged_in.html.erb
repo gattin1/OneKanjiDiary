@@ -1,10 +1,10 @@
-<div class="navbar bg-stone-200">
+<div class="navbar bg-stone-300">
   <div class="flex-1">
     <a><%= link_to '一文字日記', root_path, class: "" %></a>
   </div>
   <div class="flex-none">
-    <button ><%= link_to '日記新規作成',new_user_diary_path(current_user), class: "btn bg-neutral-400  mr-2 block flex items-center justify-center" %></button>
-    <button ><%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-neutral-400 mr-2 block flex items-center justify-center" %></button>
-    <button ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn bg-neutral-400 block flex items-center justify-center" %></button>
+    <button ><%= link_to '日記新規作成',new_user_diary_path(current_user), class: "btn bg-neutral-200  mr-2 block flex items-center justify-center" %></button>
+    <button ><%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-neutral-200 mr-2 block flex items-center justify-center" %></button>
+    <button ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn bg-neutral-200 block flex items-center justify-center" %></button>
   </div>
 </div>

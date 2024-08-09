@@ -1,40 +1,47 @@
 <%= form_with model: [current_user, @diary], local: true, data: { turbo: false } do |form| %>
   <% if @diary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@diary.errors.count, "error") %> prohibited this diary from being saved:</h2>
-      <ul>
+    <div id="error_explanation" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
+      <h2 class="font-semibold"><%= pluralize(@diary.errors.count, "error") %> prohibited this diary from being saved:</h2>
+      <ul class="list-disc pl-5">
         <% @diary.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <div class="moods" style="display: flex; flex-wrap: wrap;">
-  <%= form.label :mood_id, t('.mood') %><br>
-  <% Mood.all.each do |mood| %>
-    <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}", style: "display:none;" %>
-    <%= form.label "mood_#{mood.id}", for: "mood_#{mood.id}", class: "mood-label" do %>
-      <%= image_tag mood.image, style: "width: 50px; height: 50px; margin-right: 20px;", class: "mood-image" if mood.image.attached? %>
+
+  <div class="moods mb-4">
+  <%= form.label :mood_id, t('.mood'), class: "block text-gray-700 font-bold mb-1 relative" %><br>
+  <div class="flex flex-wrap space-x-4" style="position: relative; top: -10px;">
+    <% Mood.all.each do |mood| %>
+      <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}", class: "hidden" %>
+      <%= form.label "mood_#{mood.id}", for: "mood_#{mood.id}", class: "mood-label text-center flex flex-col items-center relative" do %>
+        <% if mood.image.attached? %>
+          <%= image_tag mood.image, class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <% end %>
+        <span class="text-xs mt-1"><%= mood.name %></span>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
-  <div class="field">
-    <%= form.label :title,  t('.title') %>
-    <%= form.text_area :title %>
+
+  <div class="field mb-4">
+    <%= form.label :title, t('.title'), class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :title, class: "shadow appearance-none border rounded-full w-28 h-28 text-center text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none text-5xl p-0 pt-6", maxlength: 1 %>
   </div>
 
-  <div class="field">
-    <%= form.label :memo, t('.memo') %>
-    <%= form.text_area :memo %>
+  <div class="field mb-4">
+    <%= form.label :memo, t('.memo'), class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_area :memo, class: "shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= form.label :date, t('.date') %>
-    <%= form.date_field :date %>
+  <div class="field mb-4">
+    <%= form.label :date, t('.date'), class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.date_field :date, class: "shadow appearance-none border rounded size-15 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", value: Date.today.strftime("%Y-%m-%d") %>
   </div>
 
   <div class="actions">
-    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update') %>
+    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update'), class: "bg-stone-400 hover:bg-stone-500 text-white font-bold mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>
