@@ -19,7 +19,7 @@ class DiariesController < ApplicationController
   def create
     @diary = current_user.diaries.build(diary_params)
     if @diary.save
-      redirect_to user_diary_path(current_user, @diary), notice: t('.success')
+      redirect_to user_diaries_path(current_user), notice: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
