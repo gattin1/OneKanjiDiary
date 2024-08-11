@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Myapp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<head>
+  <title>Myapp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+</head>
+<body class="bg-stone-100 font-serif flex flex-col min-h-screen">
+  <% if notice.present? %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert.present? %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <%= render 'layouts/header_logged_in' if user_signed_in? %>
+  <%= render 'layouts/header_logged_out' unless user_signed_in? %>
 
-  </head>
-  <body class="bg-stone-100, font-serif">
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-      <%= render 'layouts/header_logged_in' if user_signed_in? %>
-      <%= render 'layouts/header_logged_out' unless user_signed_in? %>
+  <!-- メインコンテンツエリアに flex-grow を追加 -->
+  <main class="flex-grow">
     <%= yield %>
-      <%= render 'layouts/footer' %>
-  </body>
+  </main>
+
+  <%= render 'layouts/footer' %>
+</body>
 </html>
