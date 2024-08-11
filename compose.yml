@@ -4,6 +4,7 @@ services:
     restart: always
     environment:
       TZ: Asia/Tokyo
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     volumes:
       - postgresql_data:/var/lib/postgresql
@@ -31,6 +32,7 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION}
       S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      MYAPP_DATABASE_PASSWORD: password
     ports:
       - "3000:3000"
     depends_on:
