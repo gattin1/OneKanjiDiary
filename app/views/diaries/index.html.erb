@@ -1,14 +1,13 @@
-<h1 class="font-medium font-yuji"><%= current_user.name %>の日記</h1>
-
 <% if @diaries.any? %>
   <% latest_diary = @diaries.order(date: :desc).first %>
   <ul>
     <li>
-    <p class="font-zen">
-      <strong><%= latest_diary.date.strftime("%Y年%m月%d日") %></strong>
-    </p>
-      <div class="flex items-center justify-center w-28 h-28 bg-gray-100 rounded-full text-center my-6">
-      <p class="<%= color_class(latest_diary.mood&.color) %> leading-tight font-yuji text-5xl m-0 text-5xl"><%= latest_diary.title %></p>
+      <p class="font-zen">
+        <strong><%= latest_diary.date.strftime("%Y年%m月%d日") %>の日記</strong>
+      </p>
+      <div class="flex items-center justify-center w-32 h-32 bg-white rounded-full text-center my-6">
+        <%= link_to latest_diary.title, user_diary_path(current_user, latest_diary), class: "leading-tight font-yuji text-5xl m-0 #{color_class(latest_diary.mood&.color)}" %>
+      </div>
     </li>
   </ul>
 <% else %>
@@ -16,7 +15,7 @@
 <% end %>
 
 <div class="calendar">
-   <%= month_calendar(title: ->(start_date) { start_date.strftime("%B") }) do |date| %>
+  <%= month_calendar(title: ->(start_date) { start_date.strftime("%B") }) do |date| %>
     <div class="day relative text-base">
       <!-- 日付を表示 -->
       <div class="date text-gray-500 text-sm absolute">
@@ -24,8 +23,7 @@
       </div>
       <% diaries_for_day = Diary.where(user_id: current_user.id, date: date) %>
       <% diaries_for_day.each do |diary| %>
-        <%= link_to diary.title, user_diary_path(current_user, diary),
-        class: "items-center justify-center text-center hover:bg-slate-100 #{color_class(diary.mood&.color)} text-4xl mt-6 font-yuji" %>
+        <%= link_to diary.title, user_diary_path(current_user, diary), class: "items-center justify-center text-center hover:bg-slate-100 #{color_class(diary.mood&.color)} text-4xl mt-6 font-yuji" %>
       <% end %>
     </div>
   <% end %>
