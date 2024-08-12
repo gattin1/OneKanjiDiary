@@ -13,8 +13,10 @@ module.exports = {
         yuji: ['Yuji Mai', 'serif'],
         zen: ['Zen Old Mincho', 'serif'],
       },
-    },
+      screen: {
+        'xs': '320px',
+      },
+    }
   }
 }
-
 
