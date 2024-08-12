@@ -9,7 +9,7 @@ method: :delete, data: { confirm: '本当に削除しますか？' } %>
   <%= @diary.date %>
 </p>
 
-<div class="flex items-center justify-center w-28 h-28 bg-gray-100 rounded-full text-center my-6">
+<div class="flex items-center justify-center w-28 h-28 bg-white rounded-full text-center my-6">
   <p class="<%= color_class(@diary.mood&.color) %> font-yuji leading-tight text-5xl m-0">
     <%= @diary.title %>
   </p>

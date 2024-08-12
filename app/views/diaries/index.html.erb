@@ -7,8 +7,9 @@
     <p class="font-zen">
       <strong><%= latest_diary.date.strftime("%Y年%m月%d日") %></strong>
     </p>
-      <div class="flex items-center justify-center w-28 h-28 bg-gray-100 rounded-full text-center my-6">
-      <p class="<%= color_class(latest_diary.mood&.color) %> leading-tight font-yuji text-5xl m-0 text-5xl"><%= latest_diary.title %></p>
+      <div class="flex items-center justify-center w-28 h-28 bg-white rounded-full text-center my-6">
+      <p class="<%= color_class(latest_diary.mood&.color) %> leading-tight font-yuji text-5xl m-0 text-5xl">
+      <%=link_to latest_diary.title, user_diary_path(current_user, latest_diary) %></p>
     </li>
   </ul>
 <% else %>
