@@ -17,17 +17,17 @@
       <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}", class: "hidden" %>
       <%= form.label "mood_#{mood.id}", for: "mood_#{mood.id}", class: "mood-label text-center flex flex-col items-center relative" do %>
         <% case mood.color %>
-          <% when 'yellow' %>
-            <%= image_tag 'yellow_image.png', class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-          <% when 'red' %>
-            <%= image_tag 'red_image.png', class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-          <% when 'blue' %>
-            <%= image_tag 'blue_image.png', class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-          <% when 'orange' %>
-            <%= image_tag 'orange_image.png', class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-          <% when 'gray' %>
-            <%= image_tag 'gray_image.png', class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-          <% end %>
+        <% when 'yellow' %>
+          <%= image_tag asset_path('yellow_image.png'), class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <% when 'red' %>
+          <%= image_tag asset_path('red_image.png'), class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <% when 'blue' %>
+          <%= image_tag asset_path('blue_image.png'), class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <% when 'orange' %>
+          <%= image_tag asset_path('orange_image.png'), class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <% when 'gray' %>
+          <%= image_tag asset_path('gray_image.png'), class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <% end %>
         <span class="text-xs mt-1"><%= mood.name %></span>
       <% end %>
     <% end %>
