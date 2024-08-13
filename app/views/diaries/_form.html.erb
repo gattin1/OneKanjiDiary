@@ -16,23 +16,13 @@
     <% Mood.all.each do |mood| %>
       <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}", class: "hidden" %>
       <%= form.label "mood_#{mood.id}", for: "mood_#{mood.id}", class: "mood-label text-center flex flex-col items-center relative" do %>
-        <% case mood.color %>
-        <% when 'yellow' %>
-          <%= image_tag "yellow_image.png", class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-        <% when 'red' %>
-          <%= image_tag "red_image.png", class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-        <% when 'blue' %>
-          <%= image_tag "blue_image.png", class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-        <% when 'orange' %>
-          <%= image_tag "orange_image.png", class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-        <% when 'gray' %>
-          <%= image_tag "gray_image.png", class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
-        <% end %>
+        <%= image_tag asset_path(mood_image_for(mood.color)), class: "w-12 h-12 mood-image border-2 hover:border-blue-500 rounded-full" %>
         <span class="text-xs mt-1"><%= mood.name %></span>
       <% end %>
     <% end %>
   </div>
 </div>
+
 
 
 
@@ -56,3 +46,10 @@
     <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update'), class: "font-zen bg-stone-400 hover:bg-stone-500 text-white font-bold mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>
+
+
+<%= image_tag 'blue_image.png', alt: "Blue Image" %>
+<%= image_tag 'gray_image.png', alt: "Gray Image" %>
+<%= image_tag 'orange_image.png', alt: "Orange Image" %>
+<%= image_tag 'red_image.png', alt: "Red Image" %>
+<%= image_tag 'yellow_image.png', alt: "Yellow Image" %>

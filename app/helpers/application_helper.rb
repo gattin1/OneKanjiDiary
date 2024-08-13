@@ -16,4 +16,16 @@ module ApplicationHelper
       'text-black'  # デフォルト
     end
   end
+
+    MOOD_IMAGES = {
+      'yellow' => 'yellow_image.png',
+      'red' => 'red_image.png',
+      'blue' => 'blue_image.png',
+      'orange' => 'orange_image.png',
+      'gray' => 'gray_image.png'
+    }.freeze
+
+  def mood_image_for(color)
+    MOOD_IMAGES[color] || 'default_image.png'
+  end
 end
