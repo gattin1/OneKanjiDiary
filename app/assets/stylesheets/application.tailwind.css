@@ -4,31 +4,36 @@
 
 /* カレンダーのスタイル */
 .simple-calendar {
-  /* カレンダー全体の幅を80%にして中央に配置 */
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.calendar-heading {
-  @apply text-base font-bold;
+.calendar-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: bold; /* font-bold */
 }
 
 .simple-calendar td {
-  @apply p-2 align-top;
+  padding: 0.5rem; /* p-2 */
+  vertical-align: top; /* align-top */
 }
 
 /* カレンダーの日付セルのスタイル */
 .day {
-  @apply bg-white shadow p-1 relative h-6 w-6;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 /* 日付表示のスタイル */
 .date {
-  @apply text-gray-500 text-base absolute;
-  top: 4px; /* 日付の位置を微調整 */
+  position: absolute;
+  top: -5px;
   left: 4px;
+  color: grey;
 }
 
 /* 前月・次月ボタンのスタイル */
@@ -43,6 +48,11 @@
 
 .prev-month:hover, .next-month:hover {
   background-color: #e0e0e0;
+}
+
+.calendar-link {
+  position: relative;
+  display: inline-block;
 }
 
 /* フォントのスタイル */
