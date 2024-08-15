@@ -10,8 +10,8 @@
   margin-right: auto;
 }
 
-.calendar-heading {
-  @apply text-base font-bold;
+.calendar-title time {
+  @apply text-2xl font-bold;
 }
 
 .simple-calendar td {
