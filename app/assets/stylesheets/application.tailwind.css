@@ -45,6 +45,13 @@
   background-color: #e0e0e0;
 }
 
+.calendar-link {
+  position: relative;
+  display: inline-block;
+  top: -10px;
+  left: -10px;
+}
+
 /* フォントのスタイル */
 .font-zen {
   font-family: 'Zen Old Mincho', serif !important;
