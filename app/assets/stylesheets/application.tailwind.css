@@ -10,30 +10,30 @@
 }
 
 .calendar-title {
-  @apply text-xl font-bold;
+  font-size: 1.25rem; /* text-xl */
+  font-weight: bold; /* font-bold */
 }
 
 .simple-calendar td {
-  @apply p-2 align-top;
+  padding: 0.5rem; /* p-2 */
+  vertical-align: top; /* align-top */
 }
 
 /* カレンダーの日付セルのスタイル */
 .day {
   height: 2.5rem;
   width: 2.5rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  --tw-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a;
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 /* 日付表示のスタイル */
 .date {
   position: absolute;
-  top: 4px;
+  top: -5px;
   left: 4px;
+  color: grey;
 }
 
 /* 前月・次月ボタンのスタイル */
