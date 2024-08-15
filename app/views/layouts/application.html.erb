@@ -22,7 +22,7 @@
   <%= render 'layouts/header_logged_in' if user_signed_in? %>
   <%= render 'layouts/header_logged_out' unless user_signed_in? %>
 
-  <main class="overflow-x-hidden">
+  <main>
     <%= yield %>
   </main>
 
