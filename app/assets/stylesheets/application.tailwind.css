@@ -4,8 +4,7 @@
 
 /* カレンダーのスタイル */
 .simple-calendar {
-  /* カレンダー全体の幅を80%にして中央に配置 */
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -48,8 +47,6 @@
 .calendar-link {
   position: relative;
   display: inline-block;
-  top: -10px;
-  left: -10px;
 }
 
 /* フォントのスタイル */
