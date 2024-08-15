@@ -20,7 +20,7 @@
     <!-- 日付に関連する日記を表示 -->
     <% diaries_for_day.each do |diary| %>
       <%= link_to diary.title, user_diary_path(current_user, diary),
-        class: "calendar-link items-center justify-center text-center hover:bg-slate-100 #{color_class(diary.mood&.color)} wr-2 text-2xl font-yuji"%>
+        class: "calendar-link items-center justify-center text-center hover:bg-slate-100 #{color_class(diary.mood&.color)} wr-2 text-4xl font-yuji"%>
     <% end %>
   </div>
 <% end %>
