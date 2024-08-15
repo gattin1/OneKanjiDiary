@@ -9,8 +9,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-mood1 = Mood.create(name: '嬉しい', color: 'yellow')
-mood2 = Mood.create(name: '怒り', color: 'red')
-mood3 = Mood.create(name: '哀しみ', color: 'blue')
-mood4 = Mood.create(name: '幸せ', color: 'orange')
-mood5 = Mood.create(name: '無', color: 'gray')
+
+# ムードデータが存在しない場合のみ作成する
+moods = [
+  { name: '嬉しい', color: 'yellow' },
+  { name: '怒り', color: 'red' },
+  { name: '哀しみ', color: 'blue' },
+  { name: '幸せ', color: 'orange' },
+  { name: '無', color: 'gray' }
+]
+
+moods.each do |mood|
+  Mood.find_or_create_by!(name: mood[:name], color: mood[:color])
+end
