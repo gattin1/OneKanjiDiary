@@ -19,7 +19,7 @@
 
 /* カレンダーの日付セルのスタイル */
 .day {
-  @apply bg-white shadow p-1 relative h-6 w-6;
+  @apply bg-white shadow p-2 relative h-6 w-6;
   position: relative;
 }
 
