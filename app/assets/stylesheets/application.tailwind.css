@@ -2,48 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* カレンダー全体のスタイル */
 .calendar  {
-     @apply w-full;
-  }
-  
-  .calendar td {
-    @apply p-2 align-top;
+  @apply w-1/2;
+}
+
+.calendar td {
+ @apply p-2 align-top;
 }
 /* カレンダーの各日付のセル */
 .day {
-  @apply bg-white shadow p-6 relative h-6 w-6;
-  position: relative;
+@apply bg-white shadow p-1 relative h-6 w-6;
+position: relative;
 }
 
 /* 日付表示のスタイル */
 .date {
-  @apply text-gray-500 text-base absolute;
-  top: 2px; /* 日付の位置を微調整 */
-  left: 4px;
+@apply text-gray-500 text-base absolute;
+top: 2px; /* 日付の位置を微調整 */
+left: 4px;
 }
 
 /* 日記タイトルのリンク */
 .day a {
-  display: block;
-  position: absolute;
-  bottom: 1px; /* リンクを日付の下に配置 */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  line-height: 3rem;
-  width: 50px;
-  height: 50px;
+display: block;
+position: absolute;
+bottom: 1px; /* リンクを日付の下に配置 */
+left: 50%;
+transform: translateX(-50%);
+text-align: center;
+line-height: 3rem;
+width: 50px;
+height: 50px;
+border-radius: 5px;
+z-index: 1;
+}
+.prev-month, .next-month {
+  margin: 10px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  text-decoration: none;
+  color: #333;
   border-radius: 5px;
-  z-index: 1;
 }
 
-  .prev-month {
-    @apply bg-gray-200 font-light
-  }
-  .next-month {
-    @apply bg-gray-200 font-light
-  }
+.prev-month:hover, .next-month:hover {
+  background-color: #e0e0e0;
+}
 
   .font-zen {
     font-family: 'Zen Old Mincho', serif !important;

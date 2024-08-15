@@ -7,7 +7,10 @@ class DiariesController < ApplicationController
   before_action :set_diary, only: %i[show edit update destroy]
 
   def index
-    @diaries = current_user.diaries.order(date: :asc)
+    start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today.beginning_of_month
+
+    @diaries = current_user.diaries.where(date: start_date..start_date.end_of_month).order(date: :asc)
+    @start_date = start_date
   end
 
   def show; end

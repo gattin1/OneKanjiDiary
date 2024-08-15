@@ -22,8 +22,7 @@
   <%= render 'layouts/header_logged_in' if user_signed_in? %>
   <%= render 'layouts/header_logged_out' unless user_signed_in? %>
 
-  <!-- メインコンテンツエリアに flex-grow を追加 -->
-  <main class="flex-grow max-w-full overflow-x-hidden">
+  <main class="overflow-x-hidden">
     <%= yield %>
   </main>
 

@@ -11,7 +11,7 @@ module ApplicationHelper
     when 'orange'
       'text-orange-500'
     when 'gray'
-      'text-gray-400'
+      'text-gray-500'
     else
       'text-black'  # デフォルト
     end

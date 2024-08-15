@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <div class="moods mb-8">
+  <div class="moods">
   <%= form.label :mood_id, t('.mood'), class: "font-zen block text-gray-600 font-normal mb-1 relative", style: "padding-left: 8px;" %><br>
   <div class="inline-flex space-x-2 bg-white p-2" style="position: relative; top: -10px;">
     <% Mood.all.each do |mood| %>
@@ -23,22 +23,22 @@
   </div>
   </div>
 
-  <div class="field mb-4">
+  <div class="field m-2">
     <%= form.label :title, t('.title'), class: "font-yuji block text-gray-700 font-medium mb-2", style: "padding-left: 8px;"%>
     <%= form.text_area :title, class: "shadow appearance-none border rounded-full w-28 h-28 text-center text-gray-700 font-yuji leading-tight focus:outline-none focus:shadow-outline resize-none text-5xl p-0 pt-6", maxlength: 1 %>
   </div>
 
-  <div class="field mb-4">
+  <div class="field m-2">
     <%= form.label :memo, t('.memo'), class: "font-zen block text-gray-700 font-bold mb-2", style: "padding-left: 8px;" %>
     <%= form.text_area :memo, class: "font-zen shadow appearance-none border rounded w-2/3 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field mb-4">
+  <div class="field m-2">
     <%= form.label :date, t('.date'), class: "block text-gray-700 font-bold mb-2", style: "padding-left: 8px;" %>
     <%= form.date_field :date, class: "shadow appearance-none border rounded size-15 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", value: Date.today.strftime("%Y-%m-%d") %>
   </div>
 
-  <div class="actions">
-    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update'), class: "font-zen bg-stone-400 hover:bg-stone-500 text-white font-bold mt-3 mb-5 py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  <div class="actions m-2">
+    <%= form.submit diary.new_record? ? t('helpers.submit.diary.create') : t('helpers.submit.diary.update'), class: "font-zen bg-stone-400 hover:bg-stone-500 text-white font-bold mt-3 mb-5 py-2 px-4  rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>

@@ -25,16 +25,19 @@
     </div>
   </div>
 
-  <!-- タイトルの円形コンテナ -->
-  <div class="flex items-center justify-center bg-white rounded-full text-center" style="width: 15rem; height: 15rem; aspect-ratio: 1/1;">
-    <p class="<%= color_class(@diary.mood&.color) %> font-yuji text-center" style="font-size: 8rem; line-height: 1;">
+  <div class="flex items-center justify-center bg-white rounded-full text-center" style="width: 12rem; height: 12rem; aspect-ratio: 1/1;">
+    <p class="<%= color_class(@diary.mood&.color) %> font-yuji text-center" style="font-size: 6rem; line-height: 1;">
       <%= @diary.title %>
     </p>
   </div>
+
+  <div class="h-32"></div>
 
   <div class="flex">
     <p class="<%= color_class(@diary.mood&.color) %> leading-tight font-zen text-4xl py-4 my-4 w-full" style="box-sizing: border-box; display: inline-block;">
       <%= @diary.memo %>
     </p>
   </div>
+</div>
+
 </div>
