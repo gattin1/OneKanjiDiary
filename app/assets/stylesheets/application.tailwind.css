@@ -9,8 +9,8 @@
   margin-right: auto;
 }
 
-.calendar-title time {
-  @apply text-2xl font-bold;
+.calendar-title {
+  @apply text-xl font-bold;
 }
 
 .simple-calendar td {
@@ -19,14 +19,20 @@
 
 /* カレンダーの日付セルのスタイル */
 .day {
-  @apply bg-white shadow p-2 relative h-6 w-6;
+  height: 2.5rem;
+  width: 2.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a;
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   position: relative;
 }
 
 /* 日付表示のスタイル */
 .date {
-  @apply text-gray-500 text-base absolute;
-  top: 4px; /* 日付の位置を微調整 */
+  position: absolute;
+  top: 4px;
   left: 4px;
 }
 
