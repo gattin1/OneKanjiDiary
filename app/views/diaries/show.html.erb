@@ -4,7 +4,7 @@
   </h1>
 
   <!-- 日付とボタンを横並びに配置 -->
-  <div class="flex items-center justify-between w-full max-w-3xl px-4">
+  <div class="flex items-center justify-between w-full max-w-3xl px-4 py-8">
     <p class="m-5 font-sm font-zen text-2xl">
       <%= @diary.date %>
     </p>
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div class="flex items-center justify-center bg-white rounded-full text-center" style="width: 12rem; height: 12rem; aspect-ratio: 1/1;">
+  <div class="flex items-center justify-center bg-white rounded-full text-center" style="width: 12rem; height: 12rem;">
     <p class="<%= color_class(@diary.mood&.color) %> font-yuji text-center" style="font-size: 6rem; line-height: 1;">
       <%= @diary.title %>
     </p>
