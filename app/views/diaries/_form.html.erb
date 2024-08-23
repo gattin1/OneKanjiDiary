@@ -16,7 +16,7 @@
     <% Mood.all.each do |mood| %>
       <%= form.radio_button :mood_id, mood.id, id: "mood_#{mood.id}", class: "hidden" %>
       <%= form.label "mood_#{mood.id}", for: "mood_#{mood.id}", class: "mood-label text-center flex flex-col items-center relative" do %>
-        <%= image_tag asset_path(mood_image_for(mood.color)), class: "w-16 h-16 mood-image border-2 hover:border-blue-500 rounded-full" %>
+        <%= image_tag asset_path(mood_image_for(mood.color)), class: "w-18 h-18 mood-image border-2 hover:border-blue-500 rounded-full" %>
         <span class="text-xs mt-1"><%= mood.name %></span>
       <% end %>
     <% end %>
