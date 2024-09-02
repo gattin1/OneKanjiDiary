@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_06_113411) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_30_141546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_113411) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "mood_id", null: false
+    t.bigint "mood_id", default: 6, null: false
     t.index ["mood_id"], name: "index_diaries_on_mood_id"
     t.index ["user_id", "date"], name: "index_diaries_on_user_id_and_date", unique: true
   end
@@ -59,6 +59,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_113411) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +86,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_113411) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "diaries", "moods"
+  add_foreign_key "sns_credentials", "users"
 end

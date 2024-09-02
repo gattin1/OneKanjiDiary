@@ -35,7 +35,13 @@ gem 'devise'
 
 gem 'devise-i18n'
 
-gem 'aws-sdk-s3', '~> 1.0'
+gem 'omniauth'
+
+gem 'omniauth-github'
+
+gem 'omniauth-rails_csrf_protection'
+
+gem 'omniauth-google-oauth2'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
