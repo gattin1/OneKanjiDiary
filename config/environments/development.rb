@@ -68,6 +68,8 @@ Rails.application.configure do
 
   config.web_console.permissions = '172.16.0.0/12'
 
+  config.hosts.clear
+
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

@@ -9,11 +9,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :omniauthable, omniauth_providers: %i[google_oauth2 line]
 
   class << self # self.を省略する
     # SnsCredentialsテーブルにデータがないとき
     def without_sns_data(auth)
+      email = auth.info.email || "temp-email-#{auth.uid}@example.com" # 仮のメールアドレスを生成
       user = User.where(email: auth.info.email).first
 
       if user.present?
@@ -25,7 +26,7 @@ class User < ApplicationRecord
       else
         user = User.create(
           name: auth.info.name,
-          email: auth.info.email,
+          email: email,
           password: Devise.friendly_token(10)
         )
         sns = SnsCredential.create(

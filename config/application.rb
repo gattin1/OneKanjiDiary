@@ -31,6 +31,13 @@ module Myapp
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'https://9ae6-133-200-128-160.ngrok-free.app'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

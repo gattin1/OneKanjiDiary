@@ -164,7 +164,9 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 1.weeks
+  config.remember_for = 3.weeks
+
+  
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
@@ -277,6 +279,10 @@ Devise.setup do |config|
                   ENV['GOOGLE_CLIENT_SECRET'],
                   skip_jwt: true
 
+  config.omniauth :line,
+                  ENV['LINE_KEY'],
+                  ENV['LINE_SECRET'],
+                  scope: 'profile openid email'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
