@@ -6,6 +6,9 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: false, // デフォルトテーマを無効にする
+  },
 
   theme: {
     extend: {

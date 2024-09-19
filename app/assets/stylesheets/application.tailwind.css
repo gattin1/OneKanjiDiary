@@ -51,8 +51,12 @@
 }
 
 .calendar-link {
-  position: relative;
-  display: inline-block;
+  display: block !important;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  box-sizing: border-box;
 }
 
 /* フォントのスタイル */
