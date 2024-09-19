@@ -1,0 +1,9 @@
+:redis:
+  url: <%= ENV['REDIS_URL'] %>
+:concurrency: 5
+:queues:
+  - default
+:cron:
+  line_notifications:
+    cron: "*/1 * * * *" # 毎分実行
+    class: "LineNotificationJob"
