@@ -55,6 +55,8 @@ gem 'sidekiq'
 
 gem 'sidekiq-cron', '~> 1.0'
 
+gem 'chartkick'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
