@@ -1,0 +1,21 @@
+<h2>カレンダー通知時間の設定</h2>
+<h3>(LINEでのログイン、公式アカウントの友達登録が必要です)</h3>
+
+<div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL"   data-lineId="@266kubjc" style="display: none;"></div>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+<%= form_with(model: @user, url: update_reminder_time_user_path(@user), method: :patch) do |f| %>
+  <div>
+    <%= f.label :reminder_time, "通知時間" %>
+    <%= f.time_select :reminder_time, { ignore_date: true } %>
+  </div>
+
+  <div>
+    <%= f.check_box :disable_reminder %>
+    <%= f.label :disable_reminder, "通知を無効にする" %>
+  </div>
+
+  <div>
+    <%= f.submit "決定" %>
+  </div>
+<% end %>

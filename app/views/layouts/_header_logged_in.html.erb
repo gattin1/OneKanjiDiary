@@ -1,8 +1,8 @@
 <div class="navbar bg-stone-300 max-w-full flex flex-row">
-  <div class="flex-grow"></div> <!-- 左側にスペースを確保 -->
+  <div class="flex-grow"></div>
   <div class="flex flex-row items-center space-x-4 justify-end">
     <%= link_to '日記新規作成', new_user_diary_path(current_user), class: "btn bg-neutral-200 block flex items-center" %>
     <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-neutral-200 block flex items-center"%>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn bg-neutral-200 block flex items-center" %>
+    <%= link_to "通知設定", reminder_settings_user_path(current_user), class: "btn bg-neutral-200 block flex items-center " %>
   </div>
 </div>

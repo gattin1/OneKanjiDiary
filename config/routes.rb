@@ -7,9 +7,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :diaries
+    get 'reminder_settings', on: :member
+    patch 'update_reminder_time', on: :member
   end
 
   root 'homes#index'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 

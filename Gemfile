@@ -51,6 +51,11 @@ gem 'rack-cors'
 
 gem 'line-bot-api'
 
+gem 'sidekiq'
+
+gem 'sidekiq-cron', '~> 1.0'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

@@ -3,7 +3,7 @@
 # DiariesControllerは、日記に関する操作を管理するコントローラです。
 # 日記の作成、表示、編集、削除などのアクションを提供します。
 class DiariesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :!
   before_action :set_diary, only: %i[show edit update destroy]
 
   def index
