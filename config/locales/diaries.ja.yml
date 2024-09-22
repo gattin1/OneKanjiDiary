@@ -18,7 +18,7 @@ ja:
     form:
       mood: 気分は？(顔文字をタッチ)
       title: 今日の一文字
-      memo: メモ
+      memo: メモ (書かなくても可)
       date: 日付
     create:
       success: 日記が作成されました。

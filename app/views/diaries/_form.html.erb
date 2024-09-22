@@ -35,7 +35,7 @@
 
   <div class="field m-2">
     <%= form.label :date, t('.date'), class: "block text-gray-700 font-bold mb-2", style: "padding-left: 8px;" %>
-    <%= form.date_field :date, class: "shadow appearance-none border rounded size-15 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", value: Date.today.strftime("%Y-%m-%d") %>
+    <%= form.date_field :date, class: "shadow appearance-none border rounded size-15 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", value: @diary.date.strftime("%Y-%m-%d") %>
   </div>
 
   <div class="actions m-2">

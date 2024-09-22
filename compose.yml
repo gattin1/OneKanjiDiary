@@ -59,7 +59,7 @@ services:
       REDIS_URL: redis://redis:6379
     depends_on:
       - redis
-      - db      
+      - db
 
 volumes:
   bundle_data:

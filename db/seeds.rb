@@ -10,12 +10,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# ムードデータが存在しない場合のみ作成する
 moods = [
   { name: '嬉しい', color: 'yellow' },
+  { name: '幸せ', color: 'orange' },
   { name: '怒り', color: 'red' },
   { name: '哀しみ', color: 'blue' },
-  { name: '幸せ', color: 'orange' },
   { name: '無', color: 'gray' }
 ]
 
