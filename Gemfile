@@ -61,6 +61,8 @@ gem 'chartkick'
 
 gem 'redis'
 
+gem 'high_voltage'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

@@ -13,7 +13,7 @@
         <%= link_to t('.edit'), edit_user_diary_path(current_user, @diary), class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
 
         <!-- 削除ボタン -->
-        <%= link_to t('.delete'), user_diary_path(current_user, @diary), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "bg-red-500 hover:bg-red-600 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
+        <%= link_to t('.delete'), user_diary_path(current_user, @diary), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "bg-red-500 hover:bg-red-600 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
       </div>
     </div>
 

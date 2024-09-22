@@ -139,6 +139,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
+    high_voltage (4.0.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -414,6 +415,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.6)
   dotenv-rails
   factory_bot_rails
+  high_voltage
   jbuilder
   jsbundling-rails
   line-bot-api
