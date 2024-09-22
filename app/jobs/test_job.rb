@@ -1,7 +1,7 @@
 class TestJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-   Rails.logger.info "TestJob is working! Arguments: #{args.inspect}"
+  def perform(message)
+    Rails.logger.info "TestJob is working. Message: #{message}"
   end
 end
