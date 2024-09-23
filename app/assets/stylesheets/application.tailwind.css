@@ -99,13 +99,13 @@ header nav a {
   width: auto; /* 自動調整 */
 }
 
-
+/* グラフの割合表示 */
 .ck-legend {
   @apply font-zen;
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  font-size: 1.5rem; /* テキスト全体のサイズを大きく */
+  margin-top: 40px;
+  font-size: 1.5rem;
 }
 
 .ck-legend ul {
@@ -116,15 +116,27 @@ header nav a {
 }
 
 .ck-legend ul li {
-  margin: 0 100px; /* 項目間のスペースを広くする */
+  margin: 0 100px;
   display: flex;
   align-items: center;
 }
 
 .ck-legend span {
   display: inline-block;
-  width: 30px; /* 色のボックスを大きく */
-  height: 30px; /* 色のボックスを大きく */
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
-  border-radius: 5px; /* 色ボックスの角を丸くする（オプション） */
+  border-radius: 5px;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.month-navigation .btn {
+  margin: 0 10px;
 }
