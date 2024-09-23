@@ -1,3 +1,22 @@
 <h1>月ごとの感情統計</h1>
 
-<%= pie_chart @mood_data, suffix: "%" %>
+<div class="month-navigation">
+  <%= link_to "先月", mood_statistics_user_diaries_path(current_user, start_date: Date.today.prev_month.beginning_of_month), class: "btn" %>
+  <%= link_to "今月", mood_statistics_user_diaries_path(current_user, start_date: Date.today.beginning_of_month), class: "btn" %>
+  <%= link_to "来月", mood_statistics_user_diaries_path(current_user, start_date: Date.today.next_month.beginning_of_month), class: "btn" %>
+</div>
+
+
+<%= pie_chart @mood_data, colors: @mood_colors.values_at(*@mood_data.keys), legend: false, height: "350px", width: "400px" %>
+
+
+<div class="ck-legend">
+  <ul>
+    <% @mood_data.each do |mood, percentage| %>
+      <li>
+        <span style="background-color: <%= @mood_colors[mood] %>;">&nbsp;&nbsp;&nbsp;</span>
+        <strong><%= mood %></strong>: <%= percentage %>%
+      </li>
+    <% end %>
+  </ul>
+</div>

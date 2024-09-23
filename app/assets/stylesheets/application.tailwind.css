@@ -98,3 +98,33 @@ header nav a {
   @apply px-4 py-2 bg-red-500 text-white;
   width: auto; /* 自動調整 */
 }
+
+
+.ck-legend {
+  @apply font-zen;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  font-size: 1.5rem; /* テキスト全体のサイズを大きく */
+}
+
+.ck-legend ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ck-legend ul li {
+  margin: 0 100px; /* 項目間のスペースを広くする */
+  display: flex;
+  align-items: center;
+}
+
+.ck-legend span {
+  display: inline-block;
+  width: 30px; /* 色のボックスを大きく */
+  height: 30px; /* 色のボックスを大きく */
+  margin-right: 10px;
+  border-radius: 5px; /* 色ボックスの角を丸くする（オプション） */
+}

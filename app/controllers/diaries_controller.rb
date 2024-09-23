@@ -48,9 +48,14 @@ class DiariesController < ApplicationController
   end
 
   def mood_statistics
-    start_date = params[:start_date] || Date.today
-    @mood_data = Diary.joins(:mood).where(date: start_date.beginning_of_month..start_date.end_of_month).group("moods.name").count
+    start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today
+    desired_order = ["嬉しい", "幸せ", "怒り", "哀しみ", "無"]
+    @mood_data = Diary.mood_statistics_for_month(start_date)
+    @mood_colors = Mood.colors_by_name
+    @mood_data = @mood_data.sort_by { |mood, _| desired_order.index(mood) || desired_order.length }.to_h
   end
+
+
 
   private
 
