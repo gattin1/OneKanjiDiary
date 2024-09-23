@@ -1,46 +1,46 @@
-<div class="font-zen">
-<h2 class="text-2xl font-mdedium text-left"><%= t('.sign_in') %></h2>
+<div class="py-6 px-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-lg py-9 bg-white rounded-lg shadow-lg">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl"><%= t('.sign_in') %></h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-2" }) do |f| %>
-  <div class="form-control">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered w-2/3" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-2 p-4" }) do |f| %>
+      <div class="field p-2">
+        <%= f.label :email, class: "font-bold" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm input input-bordered p-px w-full" %>
+      </div>
+
+      <div class="field p-2">
+        <%= f.label :password, class: "font-bold" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "text-sm input input-bordered p-px w-full" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field p-2">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "font-bold" %>
+        </div>
+      <% end %>
+
+      <p class="text-sm text-gray-500">
+        GoogleやLINEでログインする場合も、同様にチェックを入れた後、ログインボタンを押してください。
+      </p>
+
+      <div class="actions text-center">
+        <%= f.submit t('.sign_in'), class: "btn bg-stone-400 text-white m-2 w-1/2" %>
+      </div>
+    <% end %>
+
+    <div class="border-b my-5"></div>
+
+    <div class="flex items-center justify-center mt-1 space-x-2">
+      <%= link_to "/users/auth/google_oauth2", data: { turbo: false }, class: "btn flex items-center py-2 px-4 border border-gray-400 rounded-md bg-white hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50" do %>
+        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="h-5 w-5 mr-2 inline-block">
+        <span class="inline-block text-xs">Googleでログイン</span>
+      <% end %>
+
+      <%= link_to user_line_omniauth_authorize_path, data: { turbo: false }, class: "btn flex items-center py-2 px-4 border border-gray-400 rounded-md bg-white hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50" do %>
+        <%= image_tag 'line_login.png', alt: 'LINE', class: 'h-5 w-5 mr-2 inline-block' %>
+        <span class="inline-block text-xs">LINEでログイン</span>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-control">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: "input input-bordered w-2/3" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-  <div class="field">
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me %>
-  </div>
-  <% end %>
-
-  <p class="text-sm text-gray-500">
-  GoogleやLINEでログインする場合も、同様にチェックを入れた後、ログインボタンを押してください。
-</p>
-
-  <div class="actions">
-    <%= f.submit t('.sign_in'), class: "btn w-32 sm:w-48 lg:w-64 bg-green-900 text-white m-1 " %>
-  </div>
-<% end %>
-
-  <div class="flex items-center justify-start mt-1">
-    <%= link_to image_tag('google_login.png', alt: 'Googleでログイン', class: 'm-2'), "/users/auth/google_oauth2" %>
-    <%= link_to "LINEでログイン", user_line_omniauth_authorize_path, class: "inline-block m-1 w-50 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mx-2 rounded-lg shadow-lg" %>
-  </div>
-
-
-
-
-
-
-<%#
-<div class="text-left mt-4 p-1">
-  <%= render "devise/shared/links"
-</div>
-%>
 </div>

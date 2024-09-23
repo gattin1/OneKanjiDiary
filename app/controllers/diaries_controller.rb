@@ -8,10 +8,13 @@ class DiariesController < ApplicationController
 
   def index
     start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today.beginning_of_month
-
     @diaries = current_user.diaries.where(date: start_date..start_date.end_of_month).order(date: :asc)
+    @todays_diary = current_user.diaries.find_by(date: Date.today)
+    @closest_diary = @todays_diary || current_user.diaries.where('date < ?', Date.today).order(date: :desc).first
+
     @start_date = start_date
   end
+
 
   def show; end
 
@@ -42,6 +45,11 @@ class DiariesController < ApplicationController
   def destroy
     @diary.destroy
     redirect_to user_diaries_path(current_user), notice: t('.success')
+  end
+
+  def mood_statistics
+    start_date = params[:start_date] || Date.today
+    @mood_data = Diary.joins(:mood).where(date: start_date.beginning_of_month..start_date.end_of_month).group("moods.name").count
   end
 
   private

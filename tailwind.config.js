@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         yuji: ['Yuji Mai', 'serif'],
         zen: ['Zen Old Mincho', 'serif'],
+        
       },
     }
   }

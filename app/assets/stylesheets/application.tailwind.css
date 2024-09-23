@@ -10,6 +10,7 @@
 }
 
 .calendar-title {
+  @apply font-zen;
   font-size: 1.25rem;
   font-style: normal !important;
   font-weight: 500 !important;
@@ -31,6 +32,7 @@
 
 /* 日付表示のスタイル */
 .date {
+  @apply font-zen;
   position: absolute;
   top: -5px;
   left: 4px;
@@ -64,6 +66,11 @@
 .font-zen {
   font-family: 'Zen Old Mincho', serif !important;
 }
+
+body .font-serif {
+  font-family: 'Noto Sans JP', 'Zen Old Mincho', sans-serif !important;
+}
+
 
 /* ムードラベルのスタイル */
 .mood-label {

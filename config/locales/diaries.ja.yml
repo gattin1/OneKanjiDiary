@@ -15,6 +15,9 @@ ja:
       title: 詳細
       edit: 編集
       delete: 削除
+    index:
+      edit: 編集
+      delete: 削除
     form:
       mood: 気分は？(顔文字をタッチ)
       title: 今日の一文字

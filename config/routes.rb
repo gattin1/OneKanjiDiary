@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 }
 
   resources :users, only: [] do
-    resources :diaries
+    resources :diaries do
+      get 'mood_statistics', on: :collection
+    end
     get 'reminder_settings', on: :member
     patch 'update_reminder_time', on: :member
   end

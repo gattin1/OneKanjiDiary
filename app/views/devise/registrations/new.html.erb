@@ -1,41 +1,49 @@
-<div class="font-zen lg:justify-center">
-<h2 class="text-2xl font-mdedium text-left"><%= t('.sign_up') %></h2>
+<div class="py-6 px-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-lg py-9 bg-white rounded-lg shadow-lg">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">会員登録</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-2 p-4" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-2" }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field p-2">
+        <%= f.label :name, class: "font-bold" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "text-sm input input-bordered p-px w-full" %>
+      </div>
 
-  <div class="field p-2">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "text-sm input input-bordered p-px w-2/3" %>
+      <div class="field p-2">
+        <%= f.label :email, class: "font-bold" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm input input-bordered p-px w-full" %>
+      </div>
+
+      <div class="field p-2">
+        <%= f.label :password, class: "font-bold" %>
+        <% if @minimum_password_length %>
+        <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "text-sm input input-bordered p-px w-full" %>
+      </div>
+
+      <div class="field p-2">
+        <%= f.label :password_confirmation, class: "font-bold" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-sm input input-bordered p-px w-full" %>
+      </div>
+
+      <div class="actions text-center">
+        <%= f.submit t('.sign_up'), class: "btn bg-stone-400 text-white m-2 w-1/2"%>
+      </div>
+    <% end %>
+
+    <div class="border-b my-5"></div>
+
+    <div class="flex items-center justify-center mt-1 space-x-2">
+      <%= link_to "/users/auth/google_oauth2", data: { turbo: false }, class: "btn flex items-center py-2 px-4 border border-gray-400 rounded-md bg-white hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 flex-initial" do %>
+        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="h-5 w-5 mr-2 inline-block">
+        <span class="inline-block text-xs">Googleでログイン</span>
+      <% end %>
+
+      <%= link_to user_line_omniauth_authorize_path, data: { turbo: false }, class: "btn flex items-center py-2 px-4 border border-gray-400 rounded-md bg-white hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 flex-initial" do %>
+        <%= image_tag 'line_login.png', alt: 'LINE', class: 'h-5 w-5 mr-2 inline-block' %>
+        <span class="inline-block text-xs">LINEでログイン</span>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field p-2">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm input input-bordered p-px w-2/3" %>
-  </div>
-
-  <div class="field p-2">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "text-sm input input-bordered p-px w-2/3" %>
-  </div>
-
-  <div class="field p-2">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-sm input input-bordered p-px w-2/3" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up'), class: "btn bg-red-700 text-white m-2"%>
-  </div>
-<% end %>
-
-  <div class="flex items-center justify-start mt-1">
-    <%= link_to image_tag('google_login.png', alt: 'Googleでログイン', class: 'm-2'), "/users/auth/google_oauth2" %>
-    <%= link_to "LINEでログイン", user_line_omniauth_authorize_path, class: "inline-block m-1 w-50 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 mx-2 rounded-lg shadow-lg" %>
-  </div>
-
-
 </div>

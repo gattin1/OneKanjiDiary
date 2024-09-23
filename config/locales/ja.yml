@@ -1,4 +1,19 @@
 ja:
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: "を入力してください"
+      too_short: "は%{count}文字以上で入力してください"
+  activerecord:
+    models:
+      diary: "日記"
+    attributes:
+      diary:
+        title: "今日の一文字"
+  helpers:
+    submit:
+      create: "%{model}の作成"
+      update: "%{model}の更新"
   simple_calendar:
     previous: "<<前月 |"
     next: "| 来月>>"
