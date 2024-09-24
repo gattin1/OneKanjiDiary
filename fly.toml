@@ -37,6 +37,7 @@ console_command = '/rails/bin/rails console'
 
 [env]
 TZ = "Asia/Tokyo"
+  PORT = "8080"
 
 [[vm]]
   memory = '1gb'
@@ -47,6 +48,3 @@ TZ = "Asia/Tokyo"
   guest_path = '/rails/public'
   url_prefix = '/'
 
-[processes]
-app = "bin/rails server"
-worker = "bundle exec sidekiq"
