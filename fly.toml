@@ -51,3 +51,4 @@ TZ = "Asia/Tokyo"
 [processes]
   app = "bin/rails server"
   worker = "bundle exec sidekiq"
+  scheduler = "bundle exec sidekiq"

@@ -1,7 +1,7 @@
 class TestJob < ApplicationJob
   queue_as :default
 
-  def perform(message)
-    Rails.logger.info "TestJob is working. Message: #{message}"
+  def perform(*args)
+    Rails.logger.info "ActiveJob is running via Sidekiq! Arguments: #{args.inspect}"
   end
 end

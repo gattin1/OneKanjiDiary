@@ -5,8 +5,3 @@
 
 :queues:
   - default
-
-:cron:
-  line_notifications:
-    cron: "*/1 * * * *" # 毎分実行
-    class: "LineNotificationJob"

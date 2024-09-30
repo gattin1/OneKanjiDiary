@@ -76,32 +76,10 @@ class User < ApplicationRecord
       end
       { user:, sns: }
     end
-
-    def send_line_notifications
-      current_time = Time.now.in_time_zone('Asia/Tokyo').strftime("%H:%M")
-      users = User.where(reminder_time: current_time)  # 通知時刻と現在の時刻を比較
-
-      users.each do |user|
-        if user.reminder_time.present? && user.line_id.present?
-          response = line_client.push_message(user.line_id, { type: 'text', text: "今日という日を漢字一文字で。以下のリンクから \nhttps://onekanjidiary.fly.dev/" })
-
-          if response.code == "200"
-            Rails.logger.info("Message sent successfully to #{user.name}")
-          else
-            Rails.logger.error("Failed to send message to #{user.name}: #{response.body}")
-          end
-        end
-      end
-    end
-
-
-    def line_client
-      @line_client ||= Line::Bot::Client.new do |config|
-        config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-        config.channel_token = ENV['LINE_CHANNEL_TOKEN']
-      end
-    end
   end
+    def can_receive_line_notification?
+      reminder_time.present? && line_id.present?
+    end
 
 
   validates :name, presence: true, length: { maximum: 20 }
