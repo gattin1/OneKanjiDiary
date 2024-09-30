@@ -98,3 +98,45 @@ header nav a {
   @apply px-4 py-2 bg-red-500 text-white;
   width: auto; /* 自動調整 */
 }
+
+/* グラフの割合表示 */
+.ck-legend {
+  @apply font-zen;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+
+.ck-legend ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ck-legend ul li {
+  margin: 0 100px;
+  display: flex;
+  align-items: center;
+}
+
+.ck-legend span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.month-navigation .btn {
+  margin: 0 10px;
+}

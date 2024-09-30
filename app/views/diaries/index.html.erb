@@ -1,38 +1,40 @@
 <div class="flex flex-col items-center justify-start min-h-screen">
-  <div class="flex space-x-4 items-center justify-between w-full max-w-3xl pl-2 pr-4 pl-4 mb-4">
-    <div class="m-0 font-sm font-zen text-xl">
-      <%= @closest_diary.date.strftime("%m月%d日") %>の日記
-    </div>
+  <% if @closest_diary.present? %>
+    <div class="flex space-x-4 items-center justify-between w-full max-w-3xl pl-2 pr-4 pl-4 mb-4">
+      <div class="m-0 font-sm font-zen text-xl">
+        <%= @closest_diary.date.strftime("%m月%d日") %>の日記
+      </div>
       <div class="flex space-x-4">
         <%= link_to t('.edit'), edit_user_diary_path(current_user, @closest_diary), class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
         <%= link_to t('.delete'), user_diary_path(current_user, @closest_diary), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
       </div>
     </div>
 
-  <div class="flex items-center justify-center bg-white rounded-full text-center" style="width: 13rem; height: 13rem; aspect-ratio: 1/1;">
-    <p class="<%= color_class(@closest_diary.mood&.color) %> font-yuji text-center" style="font-size: 8rem; line-height: 1;">
-      <%= @closest_diary.title %>
-    </p>
-  </div>
+    <div class="flex items-center justify-center bg-white rounded-full text-center" style="width: 13rem; height: 13rem; aspect-ratio: 1/1;">
+      <p class="<%= color_class(@closest_diary.mood&.color) %> font-yuji text-center" style="font-size: 8rem; line-height: 1;">
+        <%= @closest_diary.title %>
+      </p>
+    </div>
+  <% else %>
+    <p>最近の日記はありません。</p>
+  <% end %>
 
+  <%= month_calendar(events: @diaries, attribute: :date) do |date, diaries_for_day| %>
+    <div class="day">
+      <!-- 日付を表示 -->
+      <span class="date"><%= date.day %></span>
 
-
-<%= month_calendar(events: @diaries, attribute: :date) do |date, diaries_for_day| %>
-  <div class="day">
-    <!-- 日付を表示 -->
-    <span class="date"><%= date.day %></span>
-
-    <!-- 日付に関連する日記を表示 -->
-    <% if diaries_for_day.any? %>
-      <% diaries_for_day.each do |diary| %>
-        <%= link_to diary.title, user_diary_path(current_user, diary),
-          class: "calendar-link items-center justify-center text-center hover:bg-slate-100 #{color_class(diary.mood&.color)} wr-2 text-4xl font-yuji" %>
+      <!-- 日付に関連する日記を表示 -->
+      <% if diaries_for_day.any? %>
+        <% diaries_for_day.each do |diary| %>
+          <%= link_to diary.title, user_diary_path(current_user, diary),
+            class: "calendar-link items-center justify-center text-center hover:bg-slate-100 #{color_class(diary.mood&.color)} wr-2 text-4xl font-yuji" %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_diary_path(current_user, date: date), class: "calendar-link hover:bg-slate-100" do %>
+          <span class="date"><%= date.day %></span> <!-- 日付全体をリンクに含める -->
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to new_user_diary_path(current_user, date: date), class: "calendar-link hover:bg-slate-100" do %>
-        <span class="date"><%= date.day %></span> <!-- 日付全体をリンクに含める -->
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 </div>

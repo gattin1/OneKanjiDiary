@@ -3,6 +3,7 @@
   <div class="flex flex-row items-center space-x-4 justify-end">
     <%= link_to '日記新規作成', new_user_diary_path(current_user), class: "btn bg-neutral-200 block flex items-center" %>
     <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-neutral-200 block flex items-center"%>
+    <%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "btn bg-neutral-200 block flex items-center"%>
     <%= link_to "通知設定", reminder_settings_user_path(current_user), class: "btn bg-neutral-200 block flex items-center " %>
   </div>
 </div>
