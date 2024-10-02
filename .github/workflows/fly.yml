@@ -18,9 +18,9 @@ jobs:
         image: postgres:13
         ports:
           - 5432:5432
-        options: |
-          -e POSTGRES_USER=postgres
-          -e POSTGRES_PASSWORD=password
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
     steps:
       - uses: actions/checkout@v3
 
