@@ -23,7 +23,7 @@
     </p>
   </div>
 
-  <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(request.original_url)}&text=#{CGI.escape(@diary.title)}&hashtags=日記" %>
+  <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(request.root_url)}&text=#{CGI.escape(@diary.title)}&hashtags=日記" %>
 
   <%= link_to twitter_share_url, target: '_blank', class: "btn bg-stone-950 text-white", rel: "noopener noreferrer", title: "Xでシェア" do %>
     <i class="fa-brands fa-square-x-twitter fa-2xl"></i> Xでシェア
