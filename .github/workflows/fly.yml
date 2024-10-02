@@ -48,6 +48,9 @@ jobs:
       - name: Precompile assets
         run: |
           bundle exec rake assets:precompile
+      - name: Install Yarn
+        run: |
+          npm install --global yarn
       - name: verify
         run: |
           bundle exec rspec
