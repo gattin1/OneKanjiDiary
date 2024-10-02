@@ -4,6 +4,46 @@ on:
     branches:
       - main
 jobs:
+  build:
+    name: verify
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: test
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    container:
+      image: ruby:3.3.4
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: postgres
+        RAILS_DATABASE_USER: postgres
+        RAILS_DATABASE_PASSWORD: password
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: bundler set up
+        run: |
+          gem install bundler
+          bundle install
+      - name: install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: db setup
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+      - name: verify
+        run: |
+          bundle exec rubocop
+          bundle exec rspec
+
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
