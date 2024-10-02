@@ -110,7 +110,7 @@ header nav a {
 
 .ck-legend ul {
   list-style: none;
-  padding: 0;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -135,8 +135,16 @@ header nav a {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 1.5rem;
 }
 
 .month-navigation .btn {
   margin: 0 10px;
+}
+
+#chart-1 {
+  display: block;
+  margin: 0 auto;
+  width: 290px;
+  height: 290px;
 }

@@ -11,6 +11,9 @@
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+  <!-- meta_tag -->
+  <%= display_meta_tags %>
 </head>
 <body class="bg-stone-100 font-serif flex flex-col min-h-screen p-0 m-0">
   <%= render 'layouts/header_logged_in' if user_signed_in? %>

@@ -1,14 +1,12 @@
-<h1 class="text-center font-medium text-xl"><%= @month_name %>の日記割合</h1>
+<h1 class="text-center font-medium text-xl font-zen"><%= @month_name %>の気分</h1>
 
-<div class="month-navigation p-4">
+<div class="month-navigation">
   <%= link_to "先月", mood_statistics_user_diaries_path(current_user, start_date: Date.today.prev_month.beginning_of_month), class: "btn border border-gray-400 hover:bg-stone-200" %>
   <%= link_to "今月", mood_statistics_user_diaries_path(current_user, start_date: Date.today.beginning_of_month), class: "btn border border-gray-400 hover:bg-stone-200" %>
   <%= link_to "来月", mood_statistics_user_diaries_path(current_user, start_date: Date.today.next_month.beginning_of_month), class: "btn border border-gray-400 hover:bg-stone-200" %>
 </div>
 
-
-<%= pie_chart @mood_data, colors: @mood_colors.values_at(*@mood_data.keys), legend: false, height: "350px", width: "400px" %>
-
+<%= pie_chart @mood_data, colors: @mood_colors.values_at(*@mood_data.keys), legend: false, suffix: "%" %>
 
 <div class="ck-legend">
   <ul>

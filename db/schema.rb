@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_29_130944) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_30_170348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_29_130944) do
     t.bigint "mood_id", default: 6, null: false
     t.index ["mood_id"], name: "index_diaries_on_mood_id"
     t.index ["user_id", "date"], name: "index_diaries_on_user_id_and_date", unique: true
+  end
+
+  create_table "meta_tags_lists", force: :cascade do |t|
+    t.string "name"
+    t.string "identifier"
+    t.string "meta_taggable_type"
+    t.bigint "meta_taggable_id"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.text "meta_keywords"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meta_taggable_type", "meta_taggable_id"], name: "index_meta_tags_lists_on_meta_taggable"
   end
 
   create_table "moods", force: :cascade do |t|

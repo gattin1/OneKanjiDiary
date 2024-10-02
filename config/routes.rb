@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     patch 'update_reminder_time', on: :member
   end
 
+    get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
+
   root 'homes#index'
 
   require 'sidekiq/web'

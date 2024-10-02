@@ -63,6 +63,12 @@ gem 'redis'
 
 gem 'high_voltage'
 
+gem 'meta-tags'
+
+gem 'mini_magick'
+
+gem 'font-awesome-sass', '~> 5.15'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
