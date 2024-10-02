@@ -78,7 +78,7 @@ class DiariesController < ApplicationController
       title: diary.title,
       description: '今日の日記',
       type: 'website',
-      url: request.original_url,
+      url: root_url,
       image: image_url,
       locale: 'ja-JP'
     }
