@@ -45,6 +45,9 @@ jobs:
         run: |
           bundle exec rails db:create
           bundle exec rails db:migrate
+      - name: Precompile assets
+        run: |
+          bundle exec rake assets:precompile
       - name: verify
         run: |
           bundle exec rspec
