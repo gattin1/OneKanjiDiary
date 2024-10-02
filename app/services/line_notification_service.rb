@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# LINE通知に関するクラス
 class LineNotificationService
   def self.send_notifications
     users = User.where(reminder_enabled: true)
@@ -7,11 +10,11 @@ class LineNotificationService
 
       response = line_client.push_message(user.line_id, message_payload)
 
-        if response.code == "200"
-          Rails.logger.info("Message sent successfully to #{user.name}")
-        else
-          Rails.logger.error("Failed to send message to #{user.name}: #{response.body}")
-        end
+      if response.code == '200'
+        Rails.logger.info("Message sent successfully to #{user.name}")
+      else
+        Rails.logger.error("Failed to send message to #{user.name}: #{response.body}")
+      end
     end
   end
 

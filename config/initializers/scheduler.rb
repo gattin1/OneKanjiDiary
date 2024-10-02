@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if defined?(Rails::Server) || defined?(Sidekiq)
   require 'sidekiq'
   require 'sidekiq-cron'

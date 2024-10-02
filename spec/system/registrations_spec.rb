@@ -27,8 +27,8 @@ RSpec.describe 'ユーザー登録', type: :system do
         expect(page).to have_content('アカウント登録が完了しました。')
       end
 
-      it 'ルートパスにリダイレクトされること' do
-        expect(current_path).to eq(root_path)
+      it 'カレンダーにリダイレクトされること' do
+        expect(current_path).to eq(user_diaries_path(User.last))
       end
     end
 

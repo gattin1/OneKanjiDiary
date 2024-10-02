@@ -69,7 +69,6 @@ gem 'mini_magick'
 
 gem 'font-awesome-sass', '~> 5.15'
 
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -116,6 +115,8 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem 'dockerfile-rails', '>= 1.6', group: :development

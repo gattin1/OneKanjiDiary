@@ -46,13 +46,12 @@ RSpec.configure do |config|
 
   Capybara.register_driver :selenium_chrome_headless do |app|
     Capybara::Selenium::Driver.new(app,
-      browser: :chrome,
-      options: Selenium::WebDriver::Chrome::Options.new(args: ['headless', 'disable-gpu', 'no-sandbox'])
-    )
+                                   browser: :chrome,
+                                   options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu
+                                                                                              no-sandbox]))
   end
 
   Capybara.javascript_driver = :selenium_chrome_headless
-
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false

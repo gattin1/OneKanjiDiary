@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# OGP画像を設定するクラス
 class ImagesController < ApplicationController
   before_action :authenticate_user!
 

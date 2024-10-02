@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# OGP画像を生成するためのクラス
 class OgpCreator
   require 'mini_magick'
   BASE_IMAGE_PATH = './app/assets/images/sns_ogp.png'
@@ -20,7 +23,6 @@ class OgpCreator
     end
   end
 
-  private
   def self.prepare_text(text)
     text.to_s.scan(/.{1,#{INDENTION_COUNT}}/)[0...ROW_LIMIT].join("\n")
   end

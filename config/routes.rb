@@ -2,8 +2,8 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
-}
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
   resources :users, only: [] do
     resources :diaries do
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     patch 'update_reminder_time', on: :member
   end
 
-    get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
+  get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
 
   root 'homes#index'
 

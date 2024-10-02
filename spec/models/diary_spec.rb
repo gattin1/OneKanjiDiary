@@ -2,59 +2,115 @@
 
 require 'rails_helper'
 
-RSpec.describe Diary, js: true, type: :model do
-  let(:user) { create(:user) }
-
-  # テスト対象のDiaryモデルのインスタンスを作成
-  subject {
+RSpec.describe Diary, type: :model do
+  subject(:diary) do
     described_class.new(
-      title: 'A', # 日記の内容を1文字に設定
-      memo: "This is a test memo.", # メモを設定
-      date: Date.today, # 今日の日付を設定
-      user: user # 先に作成したユーザーを関連付け
+      title: 'A',
+      memo: 'This is a test memo.',
+      date: Time.zone.today,
+      user: user,
+      mood: mood
     )
-  }
+  end
+
+  let(:user) { create(:user) }
+  let(:mood) { create(:mood) }
 
   describe 'バリデーション' do
     it '有効な属性であれば有効であること' do
-      expect(subject).to be_valid
+      expect(diary).to be_valid
     end
 
-    it 'titleがなければ無効であること' do
-      subject.title = nil
-      expect(subject).not_to be_valid
+    context 'titleのバリデーション' do
+      it 'titleがなければ無効であること' do
+        diary.title = nil
+        expect(diary).not_to be_valid
+      end
+
+      it 'titleがなければエラーメッセージが表示されること' do
+        diary.title = nil
+        diary.validate
+        expect(diary.errors[:title]).to include("can't be blank")
+      end
+
+      it 'titleの長さが1文字でなければ無効であること' do
+        diary.title = 'AB'
+        expect(diary).not_to be_valid
+      end
+
+      it 'titleの長さが1文字でなければエラーメッセージが表示されること' do
+        diary.title = 'AB'
+        diary.validate
+        expect(diary.errors[:title]).to include('is the wrong length (should be 1 character)')
+      end
     end
 
-    it 'titleの長さが1文字でなければ無効であること' do
-      subject.title = 'AB'
-      expect(subject).not_to be_valid
+    context 'dateのバリデーション' do
+      it 'dateがなければ無効であること' do
+        diary.date = nil
+        expect(diary).not_to be_valid
+      end
+
+      it 'dateがなければエラーメッセージが表示されること' do
+        diary.date = nil
+        diary.validate
+        expect(diary.errors[:date]).to include("can't be blank")
+      end
     end
 
-    it 'dateがなければ無効であること' do
-      subject.date = nil
-      expect(subject).not_to be_valid
+    context '同じユーザーに対して日付が一意でなければ無効であること' do
+      it '日付が一意でなければ無効であること' do
+        create(:diary, date: Time.zone.today, user: user, mood: mood)
+        expect(diary).not_to be_valid
+      end
+
+      it '日付が一意でなければエラーメッセージが表示されること' do
+        create(:diary, date: Time.zone.today, user: user, mood: mood)
+        diary.validate
+        expect(diary.errors[:date]).to include('has already been taken')
+      end
     end
 
-    it '同じユーザーに対して日付が一意でなければ無効であること' do
-      create(:diary, date: Date.today, user: user)
-      expect(subject).not_to be_valid
+    context 'メモのバリデーション' do
+      it 'メモが最大255文字であれば有効であること' do
+        diary.memo = 'a' * 255
+        expect(diary).to be_valid
+      end
+
+      it 'メモが255文字を超える場合は無効であること' do
+        diary.memo = 'a' * 256
+        expect(diary).not_to be_valid
+      end
+
+      it 'メモが255文字を超える場合はエラーメッセージが表示されること' do
+        diary.memo = 'a' * 256
+        diary.validate
+        expect(diary.errors[:memo]).to include('is too long (maximum is 255 characters)')
+      end
     end
 
-    it 'メモが最大255文字であれば有効であること' do
-      subject.memo = 'a' * 255
-      expect(subject).to be_valid
-    end
+    context 'moodのバリデーション' do
+      it 'moodがなければ無効であること' do
+        diary.mood = nil
+        expect(diary).not_to be_valid
+      end
 
-    it 'メモが255文字を超える場合は無効であること' do
-      subject.memo = "a" * 256
-      expect(subject).not_to be_valid
+      it 'moodがなければエラーメッセージが表示されること' do
+        diary.mood = nil
+        diary.validate
+        expect(diary.errors[:mood]).to include("can't be blank")
+      end
     end
   end
 
-  describe "アソシエーション" do
-    # DiaryモデルがUserに属していることを確認
-    it "Userに属していること" do
+  describe 'アソシエーション' do
+    it 'Userに属していること' do
       assoc = described_class.reflect_on_association(:user)
+      expect(assoc.macro).to eq :belongs_to
+    end
+
+    it 'Moodに属していること' do
+      assoc = described_class.reflect_on_association(:mood)
       expect(assoc.macro).to eq :belongs_to
     end
   end

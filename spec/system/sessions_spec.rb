@@ -20,14 +20,14 @@ RSpec.describe 'ユーザーセッション', type: :system do
       expect(page).to have_content('ログインしました。')
     end
 
-    it 'ログイン後にルートパスにリダイレクトされること' do
+    it 'ログイン後にカレンダーにリダイレクトされること' do
       visit new_user_session_path
 
       fill_in 'メールアドレス', with: 'test@example.com'
       fill_in 'パスワード', with: 'password'
       click_button 'ログイン'
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(user_diaries_path(User.last))
     end
 
     it '無効な資格情報ではログインできないこと' do

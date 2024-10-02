@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# 通知機能に関するクラス
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -8,7 +11,7 @@ class UsersController < ApplicationController
   def update_reminder_time
     @user = current_user
     if @user.update(user_params)
-      message = @user.reminder_enabled ? "通知がオンになりました" : "通知がオフになりました"
+      message = @user.reminder_enabled ? '通知がオンになりました' : '通知がオフになりました'
       redirect_to user_diaries_path(current_user), notice: message
     else
       render :reminder_settings
