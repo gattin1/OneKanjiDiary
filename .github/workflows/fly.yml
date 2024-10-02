@@ -26,6 +26,11 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
 
+      - name: Set up Database
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+
       - name: Run tests
         run: |
           bundle exec rspec
