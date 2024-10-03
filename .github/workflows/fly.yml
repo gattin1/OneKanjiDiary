@@ -40,17 +40,20 @@ jobs:
       - name: install node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
       - name: db setup
         run: |
           bundle exec rails db:create
           bundle exec rails db:migrate
-      - name: Precompile assets
-        run: |
-          bundle exec rake assets:precompile
       - name: Install Yarn
         run: |
           npm install --global yarn
+      - name: yarn install
+        run: |
+          yarn install --frozen-lockfile
+      - name: Precompile assets
+        run: |
+          bundle exec rake assets:precompile
       - name: verify
         run: |
           bundle exec rspec
