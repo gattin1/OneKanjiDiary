@@ -30,7 +30,7 @@ RSpec.describe Diary, type: :model do
       it 'titleがなければエラーメッセージが表示されること' do
         diary.title = nil
         diary.validate
-        expect(diary.errors[:title]).to include("can't be blank")
+        expect(diary.errors[:title]).to include("を入力してください")
       end
 
       it 'titleの長さが1文字でなければ無効であること' do
@@ -41,7 +41,7 @@ RSpec.describe Diary, type: :model do
       it 'titleの長さが1文字でなければエラーメッセージが表示されること' do
         diary.title = 'AB'
         diary.validate
-        expect(diary.errors[:title]).to include('is the wrong length (should be 1 character)')
+        expect(diary.errors[:title]).to include('は一文字で入力してください')
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe Diary, type: :model do
       it 'dateがなければエラーメッセージが表示されること' do
         diary.date = nil
         diary.validate
-        expect(diary.errors[:date]).to include("can't be blank")
+        expect(diary.errors[:date]).to include("を入力してください")
       end
     end
 
@@ -67,7 +67,7 @@ RSpec.describe Diary, type: :model do
       it '日付が一意でなければエラーメッセージが表示されること' do
         create(:diary, date: Time.zone.today, user: user, mood: mood)
         diary.validate
-        expect(diary.errors[:date]).to include('has already been taken')
+        expect(diary.errors[:date]).to include('は既に存在します')
       end
     end
 
@@ -85,7 +85,7 @@ RSpec.describe Diary, type: :model do
       it 'メモが255文字を超える場合はエラーメッセージが表示されること' do
         diary.memo = 'a' * 256
         diary.validate
-        expect(diary.errors[:memo]).to include('is too long (maximum is 255 characters)')
+        expect(diary.errors[:memo]).to include('は255文字以内で入力してください')
       end
     end
 
@@ -98,7 +98,7 @@ RSpec.describe Diary, type: :model do
       it 'moodがなければエラーメッセージが表示されること' do
         diary.mood = nil
         diary.validate
-        expect(diary.errors[:mood]).to include("can't be blank")
+        expect(diary.errors[:mood]).to include("を入力してください")
       end
     end
   end
