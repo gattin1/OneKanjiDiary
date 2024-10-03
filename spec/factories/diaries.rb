@@ -6,7 +6,7 @@ FactoryBot.define do
     color { 'yellow' }
   end
   factory :diary do
-    title { 'A' }
+    title { '子' }
     memo { 'This is a test memo.' }
     date { Time.zone.today }
     association :user
@@ -14,7 +14,7 @@ FactoryBot.define do
   end
 
   factory :diary_with_different_title, class: 'Diary' do
-    title { 'B' }
+    title { '児' }
     memo { 'This is a test memo_2.' }
     date { Date.tomorrow }
     association :user

@@ -67,7 +67,7 @@ RSpec.describe Diary, type: :model do
       it '日付が一意でなければエラーメッセージが表示されること' do
         create(:diary, date: Time.zone.today, user: user, mood: mood)
         diary.validate
-        expect(diary.errors[:date]).to include('は既に存在します')
+        expect(diary.errors[:date]).to include('はすでに存在します')
       end
     end
 
