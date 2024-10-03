@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Diaries', type: :system do
-  let(:user) { create(:user) }
-  let(:mood) { create(:mood) }
+  let!(:user) { create(:user) }
+  let!(:mood) { create(:mood) }
 
   before do
     driven_by(:rack_test) # テストのドライバを指定 (ブラウザなしで実行)
@@ -33,6 +33,7 @@ RSpec.describe 'Diaries', type: :system do
     end
 
     it '作成された日記が表示されること' do
+      create(:diary, user: user, title: '人')
       visit user_diaries_path(user)
       expect(page).to have_content('人')
     end
