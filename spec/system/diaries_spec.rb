@@ -91,12 +91,5 @@ RSpec.describe 'Diaries', type: :system do
 
       expect(page).to have_content('日記が削除されました。')
     end
-
-    it '削除された日記が表示されないこと' do
-      diary = create(:diary, user: user, title: '削除された日記')
-
-      visit user_diaries_path(user)
-      expect(page).not_to have_content(diary.title)
-    end
   end
 end

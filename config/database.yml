@@ -9,11 +9,12 @@ default: &default
 development:
   <<: *default
   database: myapp_development
+  host: db
 
 test:
   <<: *default
   database: myapp_test
-  host: postgres
+  host: db
 
 production:
   <<: *default
