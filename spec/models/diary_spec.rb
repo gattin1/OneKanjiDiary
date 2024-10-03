@@ -41,7 +41,7 @@ RSpec.describe Diary, type: :model do
       it 'titleの長さが1文字でなければエラーメッセージが表示されること' do
         diary.title = 'AB'
         diary.validate
-        expect(diary.errors[:title]).to include('は一文字で入力してください')
+        expect(diary.errors[:title]).to include('は1文字で入力してください')
       end
     end
 
