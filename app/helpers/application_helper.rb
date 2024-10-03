@@ -32,4 +32,29 @@ module ApplicationHelper
   def mood_image_for(color)
     MOOD_IMAGES[color] || 'default_image.png'
   end
+
+  def default_meta_tags
+    {
+      site: '詐欺師の手帳',
+      title: '詐欺師の手帳',
+      reverse: true,
+      charset: 'utf-8',
+      description: '詐欺被害の未然防止を目的としたアプリです',
+      canonical: root_url,
+      og: {
+        site_name: '詐欺師の手帳',
+        title: '詐欺師の手帳',
+        description: '詐欺被害の未然防止を目的としたアプリです',
+        type: 'website',
+        url: request.original_url,
+        image: image_url('sns_ogp.png'),
+        local: 'ja-JP'
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@https://x.com/yukimura877',
+        image: image_url('default_share.png')
+      }
+    }
+  end
 end

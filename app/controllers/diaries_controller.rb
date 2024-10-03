@@ -7,11 +7,12 @@ class DiariesController < ApplicationController
   helper_method :prepare_meta_tags
 
   def index
-    @start_date = set_start_date
+    @start_date = params[:start_date] ? Date.parse(params[:start_date]) : Time.zone.today.beginning_of_month
     end_date = @start_date.end_of_month
-    @diaries = fetch_diaries(@start_date, end_date)
-    @todays_diary = find_todays_diary
-    @closest_diary = @todays_diary || find_closest_diary
+    # 現在の月、前月、来月の日記を取得する
+    @diaries = current_user.diaries.where(date: @start_date.prev_month.beginning_of_month..end_date.next_month.end_of_month).order(date: :asc)
+    @todays_diary = current_user.diaries.find_by(date: Time.zone.today)
+    @closest_diary = @todays_diary || current_user.diaries.where('date < ?', Time.zone.today).order(date: :desc).first
   end
 
   def show
@@ -68,18 +69,8 @@ class DiariesController < ApplicationController
   end
 
   def prepare_meta_tags(diary)
-    image_url = generate_image_url(diary)
-    meta_tags = generate_meta_tags(diary, image_url)
-
-    set_meta_tags og: meta_tags, twitter: meta_tags.merge(card: 'summary_large_image')
-  end
-
-  def generate_image_url(diary)
-    "#{request.base_url}/images/ogp.png?text=#{CGI.escape(diary.title)}"
-  end
-
-  def generate_meta_tags(diary, image_url)
-    {
+    image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(diary.title)}"
+    meta_tags = {
       site: '一文字日記',
       title: diary.title,
       description: '今日の日記',
@@ -88,21 +79,7 @@ class DiariesController < ApplicationController
       image: image_url,
       locale: 'ja-JP'
     }
-  end
 
-  def set_start_date
-    params[:start_date] ? Date.parse(params[:start_date]) : Time.zone.today.beginning_of_month
-  end
-
-  def fetch_diaries(start_date, end_date)
-    current_user.diaries.where(date: start_date.prev_month.beginning_of_month..end_date.next_month.end_of_month).order(date: :asc)
-  end
-
-  def find_todays_diary
-    current_user.diaries.find_by(date: Time.zone.today)
-  end
-
-  def find_closest_diary
-    current_user.diaries.where('date < ?', Time.zone.today).order(date: :desc).first
+    set_meta_tags og: meta_tags, twitter: meta_tags.merge(card: 'summary_large_image')
   end
 end
