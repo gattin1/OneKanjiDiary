@@ -5,6 +5,8 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_diary, only: %i[show edit update destroy]
   helper_method :prepare_meta_tags
+  skip_before_action :authenticate_user!, only: [:show]
+
   include ApplicationHelper
 
   def index
@@ -17,6 +19,7 @@ class DiariesController < ApplicationController
   end
 
   def show
+    logger.debug "Diary: #{@diary.inspect}"
     prepare_meta_tags(@diary)
   end
 

@@ -38,7 +38,7 @@ module ApplicationHelper
       title = diary.title
       description = '今日の日記'
       image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(diary.title)}"
-      url = root_url
+      url = user_diary_url(diary.user_id, diary)
     else
       # デフォルトのメタタグの設定
       title = '一文字日記'
