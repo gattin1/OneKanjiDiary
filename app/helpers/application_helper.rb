@@ -33,28 +33,30 @@ module ApplicationHelper
     MOOD_IMAGES[color] || 'default_image.png'
   end
 
-  def default_meta_tags
-    {
-      site: '詐欺師の手帳',
-      title: '詐欺師の手帳',
-      reverse: true,
-      charset: 'utf-8',
-      description: '詐欺被害の未然防止を目的としたアプリです',
-      canonical: root_url,
-      og: {
-        site_name: '詐欺師の手帳',
-        title: '詐欺師の手帳',
-        description: '詐欺被害の未然防止を目的としたアプリです',
-        type: 'website',
-        url: request.original_url,
-        image: image_url('sns_ogp.png'),
-        local: 'ja-JP'
-      },
-      twitter: {
-        card: 'summary_large_image',
-        site: '@https://x.com/yukimura877',
-        image: image_url('default_share.png')
-      }
+   def prepare_meta_tags(diary = nil)
+    if diary
+      title = diary.title
+      description = '今日の日記'
+      image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(diary.title)}"
+      url = root_url
+    else
+      # デフォルトのメタタグの設定
+      title = '一文字日記'
+      description = 'あなたの日々を一文字で表現する日記アプリ'
+      image_url = "#{request.base_url}/images/default_ogp.png"
+      url = root_url
+    end
+
+    meta_tags = {
+      site: '一文字日記',
+      title: title,
+      description: description,
+      type: 'website',
+      url: url,
+      image: image_url,
+      locale: 'ja-JP'
     }
+
+    set_meta_tags og: meta_tags, twitter: meta_tags.merge(card: 'summary_large_image')
   end
 end

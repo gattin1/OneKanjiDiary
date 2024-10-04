@@ -5,6 +5,7 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_diary, only: %i[show edit update destroy]
   helper_method :prepare_meta_tags
+  include ApplicationHelper
 
   def index
     @start_date = params[:start_date] ? Date.parse(params[:start_date]) : Time.zone.today.beginning_of_month
@@ -66,20 +67,5 @@ class DiariesController < ApplicationController
 
   def diary_params
     params.require(:diary).permit(:title, :memo, :date, :mood_id)
-  end
-
-  def prepare_meta_tags(diary)
-    image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(diary.title)}"
-    meta_tags = {
-      site: '一文字日記',
-      title: diary.title,
-      description: '今日の日記',
-      type: 'website',
-      url: root_url,
-      image: image_url,
-      locale: 'ja-JP'
-    }
-
-    set_meta_tags og: meta_tags, twitter: meta_tags.merge(card: 'summary_large_image')
   end
 end
