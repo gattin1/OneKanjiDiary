@@ -61,3 +61,8 @@ Xでの活用、RUNTEQコミュニティでの拡散、友人、知人への紹�
 | css | TailwindCSS |
 | バージョン管理ツール | Github |
 | その他 | LINEMessageAPI,turbo-rails,devise,omiauth, omiauth-line,omiauth-google-oauth2,sidekiq,chartkick,neta-tags,mini_magick |
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/72bcab2b4df4343b0abf78516ade925d.png)](https://gyazo.com/72bcab2b4df4343b0abf78516ade925d)
+## 画面遷移図
+https://www.figma.com/design/GSxDVtIGLkvNtni0xAGGXB/%E7%84%A1%E9%A1%8C?node-id=0-1&t=MUnhQMJX1NpbUIQt-1
