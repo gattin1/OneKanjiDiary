@@ -23,7 +23,8 @@
     </p>
   </div>
 
-  <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(root_url)}&text=#{CGI.escape("今日の私の一文字は'#{@diary.title}'です 一文字日記　今日の一日を漢字一文字で。")}" %>
+  <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(root_url)}&text=#{CGI.escape("今日の私の一文字は#{@diary.title}'です
+  今日の一日を漢字一文字で。")}" %>
 
 
   <%= link_to twitter_share_url, target: '_blank', class: "btn bg-stone-950 text-white", rel: "noopener noreferrer", title: "Xでシェア" do %>
