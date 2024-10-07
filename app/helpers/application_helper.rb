@@ -33,14 +33,15 @@ module ApplicationHelper
     MOOD_IMAGES[color] || 'default_image.png'
   end
 
-   def prepare_meta_tags(diary = nil)
-    if diary
-      title = diary.title
-      description = '今日の日記'
+  def prepare_meta_tags(diary = nil)
+    if diary.present?
+      # 日記の詳細ページ用のメタ情報を生成（URLはroot_urlを使用）
+       title = "今日の私の一文字は\"#{diary.title}\"です"
+    description = '一文字日記　今日の一日を漢字一文字で。'
       image_url = "#{request.base_url}/images/ogp.png?text=#{CGI.escape(diary.title)}"
-      url = user_diary_url(diary.user_id, diary)
+      url = root_url  # 常にトップページにリダイレクト
     else
-      # デフォルトのメタタグの設定
+      # トップページや他のページ用のメタタグ設定
       title = '一文字日記'
       description = 'あなたの日々を一文字で表現する日記アプリ'
       image_url = "#{request.base_url}/images/default_ogp.png"
@@ -52,7 +53,7 @@ module ApplicationHelper
       title: title,
       description: description,
       type: 'website',
-      url: url,
+      url: url,  # 常にトップページ
       image: image_url,
       locale: 'ja-JP'
     }

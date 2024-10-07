@@ -1,16 +1,19 @@
-<h2>カレンダー通知時間の設定</h2>
-<h3>(LINEでのログイン、公式アカウントの友達登録が必要です)</h3>
+<div class="text-center">
+  <h2 class="text-xl pt-4 pb-5 font-zen italic text-gray-500">LINE通知の設定</h2>
+  <h3>(通知機能にはLINEでのログイン、公式アカウントの友達登録が必要です)</h3>
 
-<div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@266kubjc" style="display: none;"></div>
-<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+  <a href="https://lin.ee/5S2Ho0g" class="line-button text-center" target="_blank">LINEで友達追加</a>
 
-<%= form_with(model: @user, url: update_reminder_time_user_path(@user), method: :patch) do |f| %>
-  <div>
-    <%= f.check_box :reminder_enabled %>
-    <%= f.label :reminder_enabled, "通知をオンにする" %>
+  <div class="flex justify-center pt-4">
+    <%= form_with(model: @user, url: update_reminder_time_user_path(@user), method: :patch) do |f| %>
+      <div>
+        <%= f.check_box :reminder_enabled %>
+        <%= f.label :reminder_enabled, "通知をオンにする" %>
+      </div>
+
+      <div class="pt-3">
+         <%= f.submit "決定", class: "bg-stone-400 hover:bg-stone-200 text-white font-bold py-2 px-6 mt-4 rounded" %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= f.submit "決定" %>
-  </div>
-<% end %>
+</div>

@@ -11,10 +11,41 @@
 
 .calendar-title {
   @apply font-zen;
-  font-size: 1.25rem;
+  font-size: 1.7rem;
   font-style: normal !important;
   font-weight: 500 !important;
+  margin-bottom: 13px;
 }
+
+.calendar-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0px 10px 0;
+}
+
+nav {
+  @apply font-zen;
+  font-size: 1.2rem;
+}
+
+nav a {
+  display: inline-block; /* ブロック要素として扱う */
+  padding: 6px 20px; /* ボタン内の余白を調整 */
+  margin: 0 20px; /* ボタン同士の間隔を調整 */
+  background-color: hsl(180, 1%, 65%); /* ボタンの背景色 */
+  color: white; /* テキストの色 */
+  text-decoration: none; /* 下線を消す */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  font-size: 16px; /* テキストサイズ */
+  transition: background-color #d6d3d1; /* 背景色の変化をアニメーション */
+}
+
+nav a:hover {
+  background-color: hsl(0, 0%, 89%); /* ホバー時に背景色を変更 */
+}
+
+
 
 .simple-calendar td {
   padding: 0.5rem; /* p-2 */
@@ -147,4 +178,17 @@ header nav a {
   margin: 0 auto;
   width: 290px;
   height: 290px;
+}
+
+.line-button {
+  display: inline-block;
+  padding: 7px 12px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: #00b900;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
 }

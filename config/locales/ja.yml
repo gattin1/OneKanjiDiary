@@ -15,6 +15,6 @@ ja:
       create: "%{model}の作成"
       update: "%{model}の更新"
   simple_calendar:
-    previous: "<<前月 |"
-    next: "| 来月>>"
+    previous: "前月"
+    next: "来月"
     today: 今月

@@ -4,8 +4,8 @@
       <%= @diary.date.strftime("%m月%d日") %>の日記
     </div>
       <div class="flex space-x-4">
-        <%= link_to t('.edit'), edit_user_diary_path(current_user, @diary), class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
-        <%= link_to t('.delete'), user_diary_path(current_user, @diary), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "bg-stone-400 hover:bg-stone-500 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
+        <%= link_to t('.edit'), edit_user_diary_path(current_user, @diary), class: "bg-stone-400 hover:bg-stone-300 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
+        <%= link_to t('.delete'), user_diary_path(current_user, @diary), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "bg-stone-400 hover:bg-stone-300 text-white font-medium text-sm p-3 rounded-full focus:outline-none focus:shadow-outline" %>
       </div>
     </div>
 
@@ -23,7 +23,8 @@
     </p>
   </div>
 
-  <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(root_url)}&text=#{CGI.escape(@diary.title)}&hashtags=日記" %>
+  <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(root_url)}&text=#{CGI.escape("今日の私の一文字は'#{@diary.title}'です 一文字日記　今日の一日を漢字一文字で。")}" %>
+
 
   <%= link_to twitter_share_url, target: '_blank', class: "btn bg-stone-950 text-white", rel: "noopener noreferrer", title: "Xでシェア" do %>
     <i class="fa-brands fa-square-x-twitter fa-2xl"></i> Xでシェア
