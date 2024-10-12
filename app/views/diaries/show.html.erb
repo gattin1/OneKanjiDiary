@@ -23,8 +23,6 @@
     </p>
   </div>
 
-  <% prepare_meta_tags(@diary) %>
-
   <% twitter_share_text = "今日の私の一文字は'#{@diary.title}'です\n一文字日記　今日の一日を漢字一文字で。" %>
   <% twitter_share_url = "https://twitter.com/share?url=#{CGI.escape(root_url)}&text=#{CGI.escape(twitter_share_text)}" %>
 
