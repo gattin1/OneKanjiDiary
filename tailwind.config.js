@@ -15,7 +15,9 @@ module.exports = {
       fontFamily: {
         yuji: ['Yuji Mai', 'serif'],
         zen: ['Zen Old Mincho', 'serif'],
-        
+      },
+      screens: {
+        'xs': '410px', // 400pxのカスタムブレイクポイントを追加
       },
     }
   }

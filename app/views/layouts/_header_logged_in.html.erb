@@ -1,9 +1,24 @@
 <div class="navbar bg-stone-300 max-w-full flex flex-row">
   <div class="flex-grow"></div>
-  <div class="flex flex-row items-center space-x-2 justify-end">
+
+  <div class="flex xs:flex-row flex-grow items-center space-x-3 xs:hidden">
+    <%= link_to '日記作成', new_user_diary_path(current_user), class: "btn bg-stone-200 flex items-center" %>
+    <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-stone-200 flex items-center"%>
+
+    <div class="dropdown">
+      <div tabindex="0" class="btn bg-stone-200">その他</div>
+      <ul tabindex="0" class="dropdown-content menu bg-stone-200 rounded-box z-[1] w-52 p-2 shadow">
+        <li><%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "flex items-center" %></li>
+        <li><%= link_to "通知設定", reminder_settings_user_path(current_user), class: "flex items-center" %></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 400px以上で横並びになる部分 -->
+  <div class="hidden xs:flex flex-row items-center space-x-2 justify-end">
     <%= link_to '日記作成', new_user_diary_path(current_user), class: "btn bg-stone-200 block flex items-center" %>
     <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-stone-200 block flex items-center"%>
     <%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "btn bg-stone-200 block flex items-center"%>
-    <%= link_to "通知設定", reminder_settings_user_path(current_user), class: "btn bg-stone-200 block flex items-center " %>
+    <%= link_to "通知設定", reminder_settings_user_path(current_user), class: "btn bg-stone-200 block flex items-center" %>
   </div>
 </div>

@@ -126,8 +126,9 @@ header nav {
 }
 
 header nav a {
-  @apply px-4 py-2 bg-red-500 text-white;
-  width: auto; /* 自動調整 */
+  @apply px-2 py-1 bg-red-500 text-white;
+  width: auto;
+  max-width: 100%;
 }
 
 /* グラフの割合表示 */
