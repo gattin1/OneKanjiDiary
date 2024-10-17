@@ -1,16 +1,16 @@
-<h2><%= t('.forgot_your_password') %></h2>
+<div class="text-center py-6">
+  <h2 class="text-xl font-bold text-gray-800 pt-4 pb-5">パスワードをお忘れですか？</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: 'space-y-4' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :email, class: "font-bold text-gray-700 rounded pb-4" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-2 p-2 border border-gray-300 rounded w-2/3" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit t('.send_me_reset_password_instructions'), class: "bg-stone-400 hover:bg-stone-200 text-white font-bold py-2 px-6 rounded" %>
+    </div>
+  <% end %>
+</div>

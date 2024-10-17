@@ -99,6 +99,8 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :development do
