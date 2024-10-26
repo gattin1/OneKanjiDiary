@@ -28,7 +28,7 @@ class LineNotificationService
   def self.message_payload
     {
       type: 'text',
-      text: "今日という日を漢字一文字で。以下のリンクから \nhttps://onekanjidiary.fly.dev/"
+      text: "今日という日を漢字一文字で。以下のリンクから \nhttps://onekanjidiary.com/"
     }
   end
 end

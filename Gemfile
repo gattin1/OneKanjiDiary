@@ -57,6 +57,8 @@ gem 'sidekiq-cron', '~> 1.0'
 
 gem 'sidekiq-scheduler'
 
+gem 'sidekiq-unique-jobs'
+
 gem 'chartkick'
 
 gem 'redis'
