@@ -10,15 +10,22 @@
       <ul tabindex="0" class="dropdown-content menu bg-stone-200 rounded-box z-[1] w-52 p-2 shadow">
         <li><%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "flex items-center" %></li>
         <li><%= link_to "通知設定", reminder_settings_user_path(current_user), class: "flex items-center" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "flex items-center" %></li>
       </ul>
     </div>
   </div>
 
   <!-- 400px以上で横並びになる部分 -->
-  <div class="hidden xs:flex flex-row items-center space-x-2 justify-end">
+  <div class="hidden xs:flex flex-row items-center space-x-2 justify-start">
     <%= link_to '日記作成', new_user_diary_path(current_user), class: "btn bg-stone-200 block flex items-center" %>
     <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-stone-200 block flex items-center"%>
     <%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "btn bg-stone-200 block flex items-center"%>
-    <%= link_to "通知設定", reminder_settings_user_path(current_user), class: "btn bg-stone-200 block flex items-center" %>
+    <div class="dropdown">
+      <div tabindex="0" class="btn bg-stone-200 block flex items-center">その他</div>
+      <ul tabindex="0" class="dropdown-content menu bg-stone-200 rounded-box z-[1] w-24 p-1 shadow">
+        <li><%= link_to "通知設定", reminder_settings_user_path(current_user), class: "flex items-left" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "flex items-left" %></li>
+      </ul>
+    </div>
   </div>
 </div>

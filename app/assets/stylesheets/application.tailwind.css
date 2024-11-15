@@ -193,13 +193,3 @@ header nav a {
   text-decoration: none;
   font-size: 13px;
 }
-
-/* カレンダー画面へのフェードイン */
-.fade {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.fade.fade {
-  opacity: 0;
-}
