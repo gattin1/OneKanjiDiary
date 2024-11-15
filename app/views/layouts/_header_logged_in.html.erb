@@ -5,7 +5,7 @@
     <%= link_to '日記作成', new_user_diary_path(current_user), class: "btn bg-stone-200 flex items-center" %>
     <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-stone-200 flex items-center"%>
 
-    <div class="dropdown">
+    <div class="dropdown"  id="main-dropdown">
       <div tabindex="0" class="btn bg-stone-200">その他</div>
       <ul tabindex="0" class="dropdown-content menu bg-stone-200 rounded-box z-[1] w-52 p-2 shadow">
         <li><%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "flex items-center" %></li>
@@ -20,7 +20,7 @@
     <%= link_to '日記作成', new_user_diary_path(current_user), class: "btn bg-stone-200 block flex items-center" %>
     <%= link_to 'カレンダー', user_diaries_path(current_user), class: "btn bg-stone-200 block flex items-center"%>
     <%= link_to '円グラフ', mood_statistics_user_diaries_path(current_user), class: "btn bg-stone-200 block flex items-center"%>
-    <div class="dropdown">
+    <div class="dropdown" id="test-dropdown">
       <div tabindex="0" class="btn bg-stone-200 block flex items-center">その他</div>
       <ul tabindex="0" class="dropdown-content menu bg-stone-200 rounded-box z-[1] w-24 p-1 shadow">
         <li><%= link_to "通知設定", reminder_settings_user_path(current_user), class: "flex items-left" %></li>

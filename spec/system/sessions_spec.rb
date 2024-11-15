@@ -61,14 +61,24 @@ RSpec.describe 'ユーザーセッション', type: :system do
 
     it 'ログアウトすると成功メッセージが表示されること' do
       visit root_path
-      click_link 'ログアウト'
+
+      # "main-dropdown"内の"その他"をクリック
+      within('#main-dropdown') do
+        find('div', text: 'その他').click
+        click_link 'ログアウト'
+      end
 
       expect(page).to have_content('ログアウトしました。')
     end
 
     it 'ログアウト後にルートパスにリダイレクトされること' do
       visit root_path
-      click_link 'ログアウト'
+
+      # "main-dropdown"内の"その他"をクリック
+      within('#main-dropdown') do
+        find('div', text: 'その他').click
+        click_link 'ログアウト'
+      end
 
       expect(current_path).to eq(root_path)
     end
