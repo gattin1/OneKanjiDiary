@@ -56,7 +56,7 @@ class DiariesController < ApplicationController
   def mood_statistics
     start_date = params[:start_date] ? Date.parse(params[:start_date]) : Time.zone.today.beginning_of_month
     desired_order = %w[嬉しい 幸せ 怒り 哀しみ 無]
-    @mood_data = Diary.mood_statistics_for_month(start_date)
+    @mood_data = current_user.diaries.mood_statistics_for_month(start_date)
     @mood_colors = Mood.colors_by_name
     @month_name = start_date.strftime('%-m月')
     @mood_data = @mood_data.sort_by { |mood, _| desired_order.index(mood) || desired_order.length }.to_h
