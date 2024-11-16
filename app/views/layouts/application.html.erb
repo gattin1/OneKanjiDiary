@@ -15,6 +15,15 @@
   <!-- meta_tag -->
   <%= display_meta_tags %>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WWVWFKRMK8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WWVWFKRMK8');
+</script>
 <body class="bg-stone-100 font-serif flex flex-col min-h-screen p-0 m-0">
   <%= render 'layouts/header_logged_in' if user_signed_in? %>
   <%= render 'layouts/header_logged_out' unless user_signed_in? %>
