@@ -1,17 +1,23 @@
-<div class="flex-grow container mx-auto mt-8 p-4">
-  <section class="bg-white shadow-md rounded-lg p-6">
-    <h1 class="text-4xl font-medium font-yuji text-center mb-4">一文字日記</h1>
-    <p class="text-lg text-center mb-5">毎日を一文字で表そう。</p>
+<div class="">
+  <div class="flex justify-center items-center bg-gray-100 pb-8">
+    <%= image_tag 'default_ogp.png', class: 'max-w-md w-full rounded-lg' %>
+  </div>
 
-    <div class="flex flex-col items-center">
-      <h2 class="text-2xl font-normal p-3 mb-2">アプリの特徴</h2>
-      <ul class="list-disc p-4 mb-4 text-left">
-        <li>その日の気分を選択して、簡単に一文字の日記を記録できます。</li>
-        <li>気分に応じたカラフルな文字をカレンダーに表示することで、過去の気分の傾向を視覚的に確認できます。</li>
-        <li>シンプルで直感的なデザインで、どなたでもすぐに使い始めることができます。</li>
-      </ul>
-      <p class="text-center">今すぐ登録して、自分だけの日記を始めましょう！</p>
-      <a href="<%= new_user_registration_path %>" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">今すぐ登録</a>
+  <div class="text-center text-lg font-bold my-6 h-5">
+    ～　一文字日記の使い方　～
+  </div>
+
+  <div class="space-y-6 px-4">
+    <div class="flex justify-center">
+      <%= image_tag 'howto_1.png', class: 'max-w-md w-full rounded-lg shadow-md' %>
     </div>
-  </section>
+    <div class="flex justify-center">
+      <%= image_tag 'howto_2.png', class: 'max-w-md w-full rounded-lg shadow-md' %>
+    </div>
+    <div class="flex justify-center">
+      <%= image_tag 'howto_3.png', class: 'max-w-md w-full rounded-lg shadow-md' %>
+    </div>
+  </div>
 </div>
+
+<div style="height: 1rem;"></div>
