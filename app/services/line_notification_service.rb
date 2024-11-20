@@ -3,13 +3,15 @@
 # LINE通知に関するクラス
 class LineNotificationService
   def self.send_notifications
+    # ユーザーの中から通知を受け取る設定が有効になっているかチェックする
     users = User.where(reminder_enabled: true)
 
+    # ユーザーがLINE通知を受信可能かチェックする
     users.each do |user|
       next unless user.can_receive_line_notification?
 
       response = line_client.push_message(user.line_id, message_payload)
-
+      # 送信結果に応じてメッセージをログに送る
       if response.code == '200'
         Rails.logger.info("Message sent successfully to #{user.name}")
       else
@@ -18,6 +20,7 @@ class LineNotificationService
     end
   end
 
+  # LINE APIクライアントを設定して返す
   def self.line_client
     @line_client ||= Line::Bot::Client.new do |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
